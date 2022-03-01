@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      "esnext",
+      "dom", 
+      "dom.iterable", 
+      "scripthost", 
+      "ES6",
+      "ES2017",
+      "ES2020"
+    ]
+  },
+  "paths": {
+    "@/*": ["./src/*"],
+    "comps/*": ["./src/components/*"],
+    "store/*": ["./src/store/*"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
