@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="about">
     <h1>关于</h1>
     <t-comment
       avatar="https://tdesign.gtimg.com/site/avatar.jpg"
@@ -10,4 +10,8 @@
   </div>
 </template>
 <script setup lang="ts"></script>
-<style scoped></style>
+<style scoped>
+.about {
+  height: 2000px;
+}
+</style>

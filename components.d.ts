@@ -8,15 +8,10 @@ declare module 'vue' {
     Footer: typeof import('./src/components/ContainerComps/Footer/index.vue')['default']
     Header: typeof import('./src/components/ContainerComps/Header/index.vue')['default']
     Layout: typeof import('./src/components/ContainerComps/Layout/layout.vue')['default']
-    TAffix: typeof import('tdesign-vue-next')['Affix']
     TButton: typeof import('tdesign-vue-next')['Button']
     TComment: typeof import('tdesign-vue-next')['Comment']
-    TContent: typeof import('tdesign-vue-next')['Content']
-    TFooter: typeof import('tdesign-vue-next')['Footer']
-    THeader: typeof import('tdesign-vue-next')['Header']
     THeadMenu: typeof import('tdesign-vue-next')['HeadMenu']
     TIcon: typeof import('tdesign-vue-next')['Icon']
-    TLayout: typeof import('tdesign-vue-next')['Layout']
     TMenuItem: typeof import('tdesign-vue-next')['MenuItem']
   }
 }
