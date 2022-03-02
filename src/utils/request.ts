@@ -1,30 +1,29 @@
 import axios from 'axios'
+// 创建axios的实例，这里采用代理就不配置baseUrl了，通过node去代理请求，绕过浏览器
+const request = axios.create({
+  withCredentials: true // 携带证书,后端得设置Access-Control-Allow-Origin ，Access-Control-Allow-Credentials这两个字段
+})
 
-export function request(config) {
-  const instance = axios.create({
-    baseURL: 'https://lianghj.top:8888/api/private/v1',
-    timeout: 5000
-  })
-
-  instance.interceptors.request.use(
-    (config) => {
-      if (window.sessionStorage.getItem('token')) {
-        config.headers.Authorization = window.sessionStorage.getItem('token')
-      }
-      return config
-    },
-    (err) => {
-      console.log(err)
+request.interceptors.request.use(
+  (config) => {
+    return config
+  },
+  (err) => {
+    console.log(err)
+  }
+)
+request.interceptors.response.use(
+  (res) => {
+    if (res.status !== 200) {
+      alert(`response.status: ${res.status}`)
     }
-  )
-
-  instance.interceptors.response.use(
-    (res) => {
-      return res.data
-    },
-    (err) => {
-      console.log(err)
+    return res.data
+  },
+  (error) => {
+    if (error.response.status === 401) {
+      window.location.reload()
     }
-  )
-  return instance(config)
-}
+  }
+)
+
+export default request
