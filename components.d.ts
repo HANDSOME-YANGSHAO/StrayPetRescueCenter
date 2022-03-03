@@ -8,6 +8,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/ContainerComps/Footer/index.vue')['default']
     Header: typeof import('./src/components/ContainerComps/Header/index.vue')['default']
     Layout: typeof import('./src/components/ContainerComps/Layout/layout.vue')['default']
+    TAvatar: typeof import('tdesign-vue-next')['Avatar']
     TButton: typeof import('tdesign-vue-next')['Button']
     TComment: typeof import('tdesign-vue-next')['Comment']
     THeadMenu: typeof import('tdesign-vue-next')['HeadMenu']

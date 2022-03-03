@@ -2,21 +2,34 @@
   <div class="headerContainer">
     <t-head-menu v-model="currentPath" theme="light" @change="changeHandler">
       <template #logo>
-        <img src="../../../assets/猫咪.png" alt="logo" />
-        <h1>流浪宠物救助中心</h1>
+        <div class="logo">
+          <img src="./img/logo.png" alt="logo" />
+        </div>
       </template>
-      <t-menu-item value="/home">首页</t-menu-item>
-      <t-menu-item value="/about">关于</t-menu-item>
-      <template #operations> </template>
+      <t-menu-item
+        v-for="item in menuList"
+        :key="item.path"
+        :value="item.path"
+      >{{ item.meta.title }}</t-menu-item>
+      <div class="operations">
+        <img class="avatar" src="./img/avatar.jpeg"/>
+        <span class="userName">{{  }}</span>
+      </div>
     </t-head-menu>
   </div>
 </template>
 
 <script setup lang="ts">
+import { json } from 'node:stream/consumers'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useRouterStore } from '../../../store/router'
 
 const router = useRouter()
+const routerStore = useRouterStore()
+const menuList = routerStore.routes.filter((item) => {
+  return item.name !== 'Index'
+})
 // 为了解决页面刷新，hash路由没变，但是组件刷新导致默认的currentPath总是刷新成初始值（/home）的问题，导致
 // 我路由还是之前的路径（about），激活样式却变成了初始导航那里（/home）
 const lastPath = localStorage.getItem('lastPath')
@@ -26,12 +39,15 @@ if (!lastPath) {
 } else {
   currentPath.value = lastPath
 }
-
 const changeHandler = (active: Event) => {
   router.push(`${active}`)
   localStorage.setItem('lastPath', `${active}`)
-  console.log('????')
 }
+
+const name = ref('')
+const userInfo = localStorage.getItem('userInfo')
+name.value = userInfo !== '' ? '用户姓名' : '游客'
+
 </script>
 
 <style scoped lang="scss">
@@ -48,13 +64,17 @@ const changeHandler = (active: Event) => {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    .operations {
+      .avatar {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+      }
+    }
   }
 }
-h1 {
-  color: #ef4136;
-}
 img {
-  height: 80px;
-  width: 61px;
+  height: 60px;
+  width: 280px;
 }
 </style>
