@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <h1>首页</h1>
     <div class="tdesign-demo-block-column">
       <div class="tdesign-demo-block-row">
@@ -41,4 +41,8 @@
 </script>
 
 <style scoped>
+.home {
+  height: 2000px;
+}
+
 </style>
