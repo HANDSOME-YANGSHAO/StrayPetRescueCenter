@@ -4,7 +4,7 @@ const Home = (): unknown => import('@/views/Home.vue')
 const AdoptionCenter = (): unknown => import('@/views/AdoptionCenter.vue')
 const FeedingRecord = (): unknown => import('@/views/FeedingRecord.vue')
 const DonationRecord = (): unknown => import('@/views/DonationRecord.vue')
-const ExchangeCenter = (): unknown => import('@/views/DonationRecord.vue')
+const ExchangeCenter = (): unknown => import('@/views/ExchangeCenter.vue')
 const ShoppingMall = (): unknown => import('@/views/ShoppingMall.vue')
 
 export const routes = [
@@ -45,7 +45,7 @@ export const routes = [
     path: '/DonationRecord',
     component: DonationRecord,
     meta: {
-      title: '喂养中心'
+      title: '捐赠中心'
     }
   },
   {
