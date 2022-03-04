@@ -4,12 +4,12 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <style scoped lang="scss">
 .content {
   margin-top: 100px;
-  padding: 20px 40px;
-  background-color: rgb(255, 165, 0, 0.3);
+  padding: 20px 0px;
 }
 </style>

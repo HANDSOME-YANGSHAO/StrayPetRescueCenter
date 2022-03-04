@@ -1,16 +1,11 @@
 <template>
-  <div class="home">
-    <h1>首页</h1>
-  </div>
+  <LoginFrom />
 </template>
 
 <script setup lang="ts">
-
+import LoginFrom from '@/components/CommonComps/LoginForm/index.vue'
 </script>
 
 <style scoped>
-.home {
-  height: 2000px;
-}
 
 </style>

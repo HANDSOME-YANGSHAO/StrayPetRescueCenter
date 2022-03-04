@@ -4,9 +4,11 @@
     "useDefineForClassFields": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": true,
+    "isolatedModules": false,
+    "strict": false,
     "jsx": "preserve",
     "sourceMap": true,
+    "baseUrl": ".",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": [
@@ -17,13 +19,12 @@
       "ES6",
       "ES2017",
       "ES2020"
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "comps/*": ["./src/components/*"],
+      "stores/*": ["./src/store/*"]
+    }
   },
-  "paths": {
-    "@/*": ["./src/*"],
-    "comps/*": ["./src/components/*"],
-    "store/*": ["./src/store/*"]
-  },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/types/*.d.ts", "src/components/InfoCopms/userList/infodata.config.ts"]
 }
