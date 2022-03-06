@@ -5,14 +5,12 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Content: typeof import('./src/components/ContainerComps/Content/index.vue')['default']
+    Drawer: typeof import('./src/components/ContainerComps/Header/Drawer/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElForm: typeof import('element-plus/es')['ElForm']
-    ElFormItem: typeof import('element-plus/es')['ElFormItem']
-    ElInput: typeof import('element-plus/es')['ElInput']
+    ElDrawer: typeof import('element-plus/es')['ElDrawer']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
-    ElRow: typeof import('element-plus/es')['ElRow']
-    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
     Footer: typeof import('./src/components/ContainerComps/Footer/index.vue')['default']
     Header: typeof import('./src/components/ContainerComps/Header/index.vue')['default']
     Layout: typeof import('./src/components/ContainerComps/Layout/layout.vue')['default']

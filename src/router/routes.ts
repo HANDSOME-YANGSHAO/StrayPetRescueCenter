@@ -1,12 +1,11 @@
 import { RouteRecordRaw } from 'vue-router'
 
-const Home = (): unknown => import('@/views/Home.vue')
-const AdoptionCenter = (): unknown => import('@/views/AdoptionCenter.vue')
-const FeedingRecord = (): unknown => import('@/views/FeedingRecord.vue')
-const DonationRecord = (): unknown => import('@/views/DonationRecord.vue')
-const ExchangeCenter = (): unknown => import('@/views/ExchangeCenter.vue')
-const ShoppingMall = (): unknown => import('@/views/ShoppingMall.vue')
-const Login = (): unknown => import('@/views/Login.vue')
+const Home = (): unknown => import('../views/Home.vue')
+const AdoptionCenter = (): unknown => import('../views/AdoptionCenter.vue')
+const FeedingRecord = (): unknown => import('../views/FeedingRecord.vue')
+const DonationRecord = (): unknown => import('../views/DonationRecord.vue')
+const ExchangeCenter = (): unknown => import('../views/ExchangeCenter.vue')
+const ShoppingMall = (): unknown => import('../views/ShoppingMall.vue')
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -15,14 +14,6 @@ export const routes: RouteRecordRaw[] = [
     component: Home,
     meta: {
       title: '首页'
-    }
-  },
-  {
-    name: 'Login',
-    path: '/Login',
-    component: Login,
-    meta: {
-      title: '登录'
     }
   },
   {
