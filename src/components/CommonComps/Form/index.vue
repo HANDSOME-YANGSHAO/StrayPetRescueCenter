@@ -6,6 +6,9 @@
     :rules="commonRules"
     :hide-required-asterisk="true"
   >
+    <el-form-item label="头像" v-if="setUserInfoItemVisible">
+      <UploadAvatar />
+    </el-form-item>
     <el-form-item label="用户名" prop="userName">
       <el-input v-if="loginItemVisible" v-model="formData.userName" :prefix-icon="User"></el-input>
       <el-input v-else v-model="formData.userName"></el-input>
@@ -54,10 +57,11 @@
 
 <script setup lang="ts">
 import { reactive, computed, ref } from 'vue'
-import { User, Lock, Phone, CopyDocument, Location } from '@element-plus/icons-vue'
+import { commonRules } from './formRules'
+import UploadAvatar from '../uploadAvatar/index.vue'
 import type { ElForm } from 'element-plus'
 import { ElMessage } from 'element-plus'
-import { commonRules } from './formRules'
+import { User, Lock, Phone, CopyDocument, Location } from '@element-plus/icons-vue'
 
 /* 表单状态 */
 const props = defineProps({

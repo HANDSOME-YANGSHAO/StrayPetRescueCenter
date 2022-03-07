@@ -23,6 +23,7 @@ declare module 'vue' {
     Form: typeof import('./src/components/CommonComps/Form/index.vue')['default']
     Header: typeof import('./src/components/ContainerComps/Header/index.vue')['default']
     Layout: typeof import('./src/components/ContainerComps/Layout/layout.vue')['default']
+    UploadAvatar: typeof import('./src/components/CommonComps/uploadAvatar/index.vue')['default']
   }
 }
 
