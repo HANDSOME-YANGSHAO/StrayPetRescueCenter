@@ -118,7 +118,7 @@ const logout = () => {
   top: 0px;
   height: 100px;
   width: 100%;
-  z-index: 999;
+  z-index: 10;
   padding: 0px 40px;
   box-shadow: 0 15px 10px -15px rgba(0, 0, 0, 0.2);
   display: flex;

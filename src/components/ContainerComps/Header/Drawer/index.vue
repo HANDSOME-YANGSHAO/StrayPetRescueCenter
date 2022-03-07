@@ -1,21 +1,25 @@
 <template>
   <el-drawer v-model="_drawerVisible" direction="ttb" size="70%" :title="title">
     <template #default>
-      <span v-if="_formStatus === 0" class="guide" @click="changeForm">还未注册？点击注册</span>
-      <span v-if="_formStatus === 1" class="guide" @click="changeForm">返回登陆界面</span>
+      <div class="guide">
+        <span v-if="_formStatus === 0" @click="changeForm">还未注册？点击注册</span>
+        <span v-if="_formStatus === 1" @click="changeForm">返回登陆界面</span>
+      </div>
+      <CommonForm ref="commonForm" :form-status="props.formStatus" />
     </template>
     <template #footer>
       <div style="flex: auto">
-        <el-button @click="cancel">取消</el-button>
-        <el-button type="primary" @click="submit">{{ title }}</el-button>
+        <el-button @click="resetForm">重置</el-button>
+        <el-button type="primary" @click="confirm">{{ title }}</el-button>
       </div>
     </template>
   </el-drawer>
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { useVModel } from '@vueuse/core'
+import CommonForm from '@/components/CommonComps/Form/index.vue'
 
 const props = defineProps({
   drawerVisible: Boolean,
@@ -37,21 +41,14 @@ const changeForm = () => {
   }
 }
 
-const cancel = () => {
-  _drawerVisible.value = false
-}
-
 const refreshHeader = inject('reloadHeader') as any
-const submit = () => {
-  // 模拟登陆成功，获得数据
-  localStorage.setItem(
-    'userInfo',
-    JSON.stringify({
-      userName: '帅气洋少',
-      avatar:
-        'https://img2.baidu.com/it/u=3406964446,4038366459&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800'
-    })
-  )
+const commonForm = ref(null)
+const resetForm = () => {
+  console.log('表单重置按钮触发')
+  commonForm.value.resetForm()
+}
+const confirm = () => {
+  commonForm.value.submit()
   refreshHeader()
   _drawerVisible.value = false
 }
@@ -59,8 +56,12 @@ const submit = () => {
 
 <style scoped lang="scss">
 .guide {
-  font-size: 10px;
-  color: #f7811c;
-  cursor: pointer;
+  padding: 20px 80px;
+  display: flex;
+  span {
+    font-size: 10px;
+    color: #f7811c;
+    cursor: pointer;
+  }
 }
 </style>
