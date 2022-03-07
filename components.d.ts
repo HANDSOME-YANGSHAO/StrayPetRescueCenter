@@ -7,20 +7,22 @@ declare module 'vue' {
     Content: typeof import('./src/components/ContainerComps/Content/index.vue')['default']
     Drawer: typeof import('./src/components/ContainerComps/Header/Drawer/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDrawer: typeof import('element-plus/es')['ElDrawer']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    ElUpload: typeof import('element-plus/es')['ElUpload']
     Footer: typeof import('./src/components/ContainerComps/Footer/index.vue')['default']
     Form: typeof import('./src/components/CommonComps/Form/index.vue')['default']
     Header: typeof import('./src/components/ContainerComps/Header/index.vue')['default']
     Layout: typeof import('./src/components/ContainerComps/Layout/layout.vue')['default']
-    LoginForm: typeof import('./src/components/CommonComps/LoginForm/index.vue')['default']
   }
 }
 

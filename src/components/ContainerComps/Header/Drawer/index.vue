@@ -44,7 +44,6 @@ const changeForm = () => {
 const refreshHeader = inject('reloadHeader') as any
 const commonForm = ref(null)
 const resetForm = () => {
-  console.log('表单重置按钮触发')
   commonForm.value.resetForm()
 }
 const confirm = () => {

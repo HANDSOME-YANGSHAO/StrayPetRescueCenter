@@ -26,7 +26,7 @@
       <el-input v-model="formData.realName"></el-input>
     </el-form-item>
     <el-form-item label="年龄" v-if="registerItemVisible || setUserInfoItemVisible" prop="age">
-      <el-input v-model="formData.age" type="number"></el-input>
+      <el-input v-model="formData.age"></el-input>
     </el-form-item>
     <el-form-item label="性别" v-if="registerItemVisible || setUserInfoItemVisible" prop="sex">
       <el-radio v-model="formData.sex" label="男" size="large" border>男生</el-radio>
@@ -75,7 +75,7 @@ const setUserInfoItemVisible = computed(() => {
 
 /* 表单引用 */
 type FormInstance = InstanceType<typeof ElForm>
-const ruleFormRef = ref<FormInstance>()
+const ruleFormRef = ref<FormInstance>(null)
 
 /* 表单数据 */
 const formData = reactive({
@@ -137,10 +137,8 @@ const onSetUserInfo = () => {
     })
   )
 }
-const resetForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  console.log('清空校验')
-  formEl.resetFields()
+const resetForm = () => {
+  ruleFormRef.value.resetFields()
 }
 
 /* 父组件调用 */
@@ -156,7 +154,7 @@ const submit = () => {
       onSetUserInfo()
       break
   }
-  resetForm(ruleFormRef.value)
+  resetForm()
 }
 defineExpose({
   submit,

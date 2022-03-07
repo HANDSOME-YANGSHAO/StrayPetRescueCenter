@@ -1,4 +1,4 @@
-const validatePhone = (rule: any, value: any, callback: any): void => {
+const validatePhone = (rule: unknown, value: string, callback: any): void => {
   const phoneReg =
     /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-79])|(?:5[0-35-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[189]))\d{8}$/
   if (value === '') {
@@ -9,7 +9,7 @@ const validatePhone = (rule: any, value: any, callback: any): void => {
     callback()
   }
 }
-const validateEmail = (rule: any, value: any, callback: any): void => {
+const validateEmail = (rule: unknown, value: string, callback: any): void => {
   const emailReg =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   if (value === '') {
@@ -20,14 +20,14 @@ const validateEmail = (rule: any, value: any, callback: any): void => {
     callback()
   }
 }
-const validateAge = (rule: any, value: any, callback: any) => {
+const validateAge = (rule: unknown, value: string, callback: any): void => {
   if (!value) {
     return callback(new Error('请输入年龄'))
-  } else if (!Number.isInteger(value)) {
+  } else if (isNaN(Number(value))) {
     callback(new Error('请输入数字'))
   } else {
-    if (value < 0 || value > 1000) {
-      callback(new Error('请输入正确的年龄！'))
+    if (Number(value) < 0 || Number(value) > 200) {
+      callback(new Error('请输入合法值'))
     } else {
       callback()
     }
