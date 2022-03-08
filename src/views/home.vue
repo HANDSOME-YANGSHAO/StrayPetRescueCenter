@@ -1,16 +1,10 @@
 <template>
-  <div class="home">
-    <h1>首页</h1>
-  </div>
+  <Home />
 </template>
 
 <script setup lang="ts">
-
+import Home from '@/components/HomeComps/index.vue'
 </script>
 
 <style scoped>
-.home {
-  height: 2000px;
-}
-
 </style>
