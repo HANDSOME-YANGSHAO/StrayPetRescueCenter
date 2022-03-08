@@ -1,5 +1,5 @@
 <template>
-    <el-carousel :interval="4000" trigger="click" height="900px">
+    <el-carousel :interval="4000" trigger="click" :height="`${carouselHeight}px`">
       <el-carousel-item v-for="item in imgList" :key="item">
         <img :src="item" />
       </el-carousel-item>
@@ -7,8 +7,12 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 
+const windowClientWidth = document.documentElement.clientWidth
+const carouselHeight = computed(() => {
+  return windowClientWidth / 2.4
+})
 const imgList = reactive([
   './img/1.jpg',
   './img/2.jpg'

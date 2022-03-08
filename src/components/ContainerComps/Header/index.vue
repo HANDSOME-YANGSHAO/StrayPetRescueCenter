@@ -8,7 +8,6 @@
         v-for="item in menuList"
         :key="item.path"
         :index="item.path"
-        @click="onActive"
         >{{ item.meta.title }}</el-menu-item
       >
     </el-menu>
@@ -73,15 +72,12 @@ const menuList = routes.filter((item: RouteRecordRaw) => {
 })
 
 const lastPath = localStorage.getItem('lastPath')
-const currentPath = ref('')
-if (!lastPath) {
-  currentPath.value = '/home'
-} else {
-  currentPath.value = lastPath
-}
-const onActive = (active) => {
-  localStorage.setItem('lastPath', `${active}`)
-}
+const currentPath = computed(() => {
+  return !lastPath ? '/home' : lastPath
+})
+// const onActive = (active) => {
+//   localStorage.setItem('lastPath', `${active.index}`)
+// }
 
 const userInfo = computed(() => {
   return JSON.parse(localStorage.getItem('userInfo') as string)
@@ -92,7 +88,7 @@ const avatarSrc = computed(() => {
     : 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.91huoke.com%2Fxxfl%2Fhk91%2Fcustomer%2F52708%2F%2FsBuoyFCYxwYuQORKgby1y40Zg8nYzc2IvMeucblk.jpeg&refer=http%3A%2F%2Fimg.91huoke.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648908845&t=36a1ac79ec1d3c2403516a2460c43396'
 })
 const name = computed(() => {
-  return userInfo.value ? 'dsadsadasdas登陆过后的用户姓名userInfo.userName' : '游客状态'
+  return userInfo.value ? 'HANDSOME-YANGSHAO' : '游客状态'
 })
 const isLogged = computed(() => {
   return Boolean(userInfo.value)
@@ -149,8 +145,8 @@ const logout = () => {
       width: 100px;
       line-height: 100%;
       text-align: center;
-      font-size: 15px;
-      color: #000;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.8);
       font-weight: bold;
       overflow: hidden;
       display: -webkit-box;
