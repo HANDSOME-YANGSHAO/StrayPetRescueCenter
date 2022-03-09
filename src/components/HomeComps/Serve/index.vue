@@ -17,16 +17,16 @@
 import { reactive } from 'vue'
 
 const cardList = reactive([
-  { title: '流浪宠物领养', imgSrc: './img/3.jpeg' },
-  { title: '宠物喂养', imgSrc: './img/4.webp' },
-  { title: '捐献爱心', imgSrc: './img/5.jpeg' },
-  { title: '宠物商城', imgSrc: './img/6.jpeg' }
+  { title: '流浪宠物领养', imgSrc: './homeImg/3.jpeg' },
+  { title: '宠物喂养', imgSrc: './homeImg/4.webp' },
+  { title: '捐献爱心', imgSrc: './homeImg/5.jpeg' },
+  { title: '宠物商城', imgSrc: './homeImg/6.jpeg' }
 ])
 </script>
 
 <style scoped lang="scss">
 .serve-container {
-  padding: 0 100px;
+  padding: 0 200px;
   margin-top: 50px;
   .serve-title {
     text-align: center;

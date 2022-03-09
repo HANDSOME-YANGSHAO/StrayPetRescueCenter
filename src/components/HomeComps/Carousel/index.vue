@@ -14,8 +14,8 @@ const carouselHeight = computed(() => {
   return windowClientWidth / 2.4
 })
 const imgList = reactive([
-  './img/1.jpg',
-  './img/2.jpg'
+  './homeImg/1.jpg',
+  './homeImg/2.jpg'
 ])
 
 </script>

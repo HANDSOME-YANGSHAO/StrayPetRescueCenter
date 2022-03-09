@@ -1,6 +1,6 @@
 <template>
   <div class="laylout">
-    <Header v-if="refresh" />
+    <Header v-if="refreshHeader" />
     <Content />
     <Footer />
   </div>
@@ -13,11 +13,11 @@ import Footer from '../Footer/index.vue'
 import { ref, nextTick, provide } from 'vue'
 import emitter from '@/utils/eventbus'
 
-const refresh = ref(true)
+const refreshHeader = ref(true)
 const reloadHeader = () => {
-  refresh.value = false
+  refreshHeader.value = false
   nextTick(() => {
-    refresh.value = true
+    refreshHeader.value = true
   })
 }
 // 子组件中刷新header
@@ -26,4 +26,5 @@ provide('reloadHeader', reloadHeader)
 emitter.on('reloadHeader', () => {
   reloadHeader()
 })
+
 </script>

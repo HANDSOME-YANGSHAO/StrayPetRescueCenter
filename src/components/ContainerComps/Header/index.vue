@@ -66,6 +66,12 @@ import { computed, inject, ref } from 'vue'
 import { RouteRecordRaw } from 'vue-router'
 import { routes } from '@/router/routes'
 import Drawer from './Drawer/index.vue'
+// import emitter from '@/utils/eventBus'
+import { useUserInfoStore } from '@/store/userInfo'
+import { storeToRefs } from 'pinia'
+
+const userInfoStore = useUserInfoStore()
+const { isLogged } = storeToRefs(userInfoStore)
 
 const menuList = routes.filter((item: RouteRecordRaw) => {
   return item.name !== 'Index' && item.name !== 'Login'
@@ -75,9 +81,6 @@ const lastPath = localStorage.getItem('lastPath')
 const currentPath = computed(() => {
   return !lastPath ? '/home' : lastPath
 })
-// const onActive = (active) => {
-//   localStorage.setItem('lastPath', `${active.index}`)
-// }
 
 const userInfo = computed(() => {
   return JSON.parse(localStorage.getItem('userInfo') as string)
@@ -104,7 +107,14 @@ const logout = () => {
   // 退出登陆清除用户数据
   localStorage.removeItem('userInfo')
   refreshHeader()
+  userInfoStore.changeLoginStatus()
 }
+
+// 全局监听跨组件需要打开登录的抽屉的事件
+// emitter.on('openLoginDraw', () => {
+//   console.log('触发！！！')
+//   drawerVisible.value = !drawerVisible.value
+// })
 </script>
 
 <style scoped lang="scss">
