@@ -11,10 +11,10 @@
         </div>
         <el-button color="#EF4136" style="color: white" @click="readMore">查看更多</el-button>
       </div>
-      <img class="Introduction-card-image" src="../../../assets/img/流浪宠物救助.webp" />
+      <img class="Introduction-card-image1" src="../../../assets/img/流浪宠物救助.webp" />
     </div>
     <div class="Introduction-card">
-      <img class="Introduction-card-image" src="../../../assets/img/用心真诚照顾.jpeg" />
+      <img class="Introduction-card-image2" src="../../../assets/img/用心真诚照顾.jpeg" />
       <div class="Introduction-card-text">
         <div class="theme">用心真诚照顾</div>
         <span class="guide">给宠物温暖的关爱</span>
@@ -30,51 +30,44 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { inject } from 'vue'
 
+const reloadHeader = inject('reloadHeader') as any
 const router = useRouter()
 const readMore = () => {
   router.push('/AdoptionCenter')
+  reloadHeader()
 }
 </script>
 
 <style scoped lang="scss">
-.theme {
-  color: #ef4136;
-  font-size: 35px;
-  font-weight: bolder;
-  line-height: 60px;
-}
-.guide {
-  font: 14px 微软雅黑, arial, Hiragino Sans GB, 宋体, sans-serif;
-  color: rgba(51, 51, 51, 0.5);
-}
 .Introduction-container {
-  margin-top: 200px;
+  margin-top: 2rem;
   width: 100%;
   .Introduction-card {
     width: 100%;
-    height: 600px;
     display: flex;
-    justify-content: space-between;
     .Introduction-card-text {
       box-sizing: border-box;
-      padding: 80px 200px;
+      padding: 0.8rem 2rem;
       width: 50%;
       height: 100%;
       .describe {
-        margin-top: 50px;
+        margin-top: 0.5rem;
       }
       .el-button {
-        width: 150px;
-        height: 50px;
-        margin-top: 40px;
+        width: 1.5rem;
+        height: 0.5rem;
+        margin-top: 0.4rem;
       }
     }
-    .Introduction-card-image {
-      min-width: 700px;
-      min-height: 400px;
+    .Introduction-card-image1 {
       width: 50%;
-      height: 100%;
+      height: 6.61144rem;
+    }
+    .Introduction-card-image2 {
+      width: 50%;
+      height: 5.99726rem;
     }
   }
 }

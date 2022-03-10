@@ -11,10 +11,10 @@ import Header from '../header/index.vue'
 import Content from '../Content/index.vue'
 import Footer from '../Footer/index.vue'
 import { ref, nextTick, provide } from 'vue'
-import emitter from '@/utils/eventbus'
 
 const refreshHeader = ref(true)
 const reloadHeader = () => {
+  // 这里加个延迟，为了让数据刷新完毕，包括登录状态的改变、路由钩子执行完毕之后拿到最新的状态和数据再
   refreshHeader.value = false
   nextTick(() => {
     refreshHeader.value = true
@@ -22,9 +22,4 @@ const reloadHeader = () => {
 }
 // 子组件中刷新header
 provide('reloadHeader', reloadHeader)
-// 全局跨组件刷新header
-emitter.on('reloadHeader', () => {
-  reloadHeader()
-})
-
 </script>

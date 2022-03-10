@@ -71,6 +71,9 @@ const goArticleDetail = () => {
 .el-card {
   border: none;
   cursor: pointer;
+  img {
+    width: 100%;
+  }
 }
 .describe-header {
   display:flex;
@@ -80,19 +83,9 @@ const goArticleDetail = () => {
 }
 .communication-container {
   margin-top: 100px;
-  padding: 0 200px;
+  padding: 0 2rem;
   .communication-titile {
-    margin: 50px 0px;
-    .theme {
-      color: #ef4136;
-      font-size: 35px;
-      font-weight: bolder;
-      line-height: 60px;
-    }
-    .guide {
-      font: 14px 微软雅黑, arial, Hiragino Sans GB, 宋体, sans-serif;
-      color: rgba(51, 51, 51, 0.5);
-    }
+    margin: 0.5rem 0;
   }
   .aricle-guide {
     display: flex;
@@ -101,15 +94,14 @@ const goArticleDetail = () => {
     .left,
     .right {
       width: 45%;
-      min-width: 700px;
       .aticle-card {
         &:hover .article-title {
           color: var(--ourTextColor);
         }
         .describe {
-          margin-top: 20px;
+          margin-top: 0.2rem;
           .article-time {
-            margin: 10px 0px;
+            margin: 0.1rem 0;
             font: 15px 微软雅黑, arial, Hiragino Sans GB, 宋体, sans-serif;
             color: rgba(51, 51, 51, 0.5);
           }

@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Activity: typeof import('./src/components/HomeComps/Activity/index.vue')['default']
+    BackTop: typeof import('./src/components/CommonComps/BackTop/index.vue')['default']
     Carousel: typeof import('./src/components/HomeComps/Carousel/index.vue')['default']
     Communication: typeof import('./src/components/HomeComps/Communication/index.vue')['default']
     Content: typeof import('./src/components/ContainerComps/Content/index.vue')['default']
@@ -25,6 +26,7 @@ declare module 'vue' {
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     Footer: typeof import('./src/components/ContainerComps/Footer/index.vue')['default']
     Form: typeof import('./src/components/CommonComps/Form/index.vue')['default']

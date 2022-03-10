@@ -26,15 +26,15 @@ const cardList = reactive([
 
 <style scoped lang="scss">
 .serve-container {
-  padding: 0 200px;
-  margin-top: 50px;
+  padding: 0 2rem;
+  margin-top: 0.5rem;
   .serve-title {
     text-align: center;
     .theme {
       color: #ef4136;
-      font-size: 35px;
+      font-size: 0.35rem;
       font-weight: bolder;
-      line-height: 100px;
+      line-height: 1rem;
     }
     .guide {
       font: 14px 微软雅黑, arial, Hiragino Sans GB, 宋体, sans-serif;
@@ -45,15 +45,15 @@ const cardList = reactive([
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 0.4rem;
     .el-card {
-      width: 280px;
-      height: 250px;
-      border-radius: 10px;
+      width: 2.8rem;
+      height: 2.5rem;
+      border-radius: 0.1rem;
       position: relative;
       img {
-        width: 280px;
-        height: 250px;
+        width:2.8rem;
+        height:2.8rem;
         border-radius: 10px;
         transition: transform 0.5s;
         transform: scale(1);
@@ -67,9 +67,9 @@ const cardList = reactive([
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 30px;
+        height: 0.3rem;
         text-align: center;
-        line-height: 30px;
+        line-height: 0.3rem;
         color: rgb(255, 255, 255);
         background-color: rgba(0, 0, 0, 0.8);
       }

@@ -19,7 +19,7 @@
   ],
   "globals": {
     "API": true,
-    "Info": true,
+    "INFO": true,
     "defineProps": true,
     "defineEmits": true,
     "defineExpose": true,

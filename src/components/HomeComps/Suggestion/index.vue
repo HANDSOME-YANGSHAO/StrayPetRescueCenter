@@ -7,12 +7,23 @@
     <div class="suggestion-content">
       <el-input
         v-model="userFeedBack"
-        :autosize="{ minRows: 5, maxRows: 10 }"
+        :autosize="{ minRows: 10, maxRows: 15 }"
         type="textarea"
         :placeholder="placeholder"
         :disabled="!isLogged"
       ></el-input>
-      <div class="tip"></div>
+      <div class="tip">
+        <el-popconfirm
+          confirm-button-text="确认"
+          cancel-button-text="取消"
+          title="是否投递建议~"
+          :hide-icon="true"
+        >
+          <template #reference>
+            <img src="../../../assets/svg/发送.svg" />
+          </template>
+        </el-popconfirm>
+      </div>
     </div>
   </div>
 </template>
@@ -22,9 +33,11 @@ import { ref, computed } from 'vue'
 import { useUserInfoStore } from '@/store/userInfo'
 import { storeToRefs } from 'pinia'
 
+const userFeedBack = ref('')
+
 const userInfoStore = useUserInfoStore()
 const { isLogged } = storeToRefs(userInfoStore)
-const userFeedBack = ref('')
+
 const placeholder = computed(() => {
   return isLogged.value ? '收集大家意见，集思广益，共同进步~' : '请先登录！'
 })
@@ -36,19 +49,22 @@ const placeholder = computed(() => {
   .suggestion-header {
     text-align: center;
     vertical-align: center;
-    .theme {
-      color: #ef4136;
-      font-size: 35px;
-      font-weight: bolder;
-      line-height: 60px;
-    }
-    .guide {
-      font: 14px 微软雅黑, arial, Hiragino Sans GB, 宋体, sans-serif;
-      color: rgba(51, 51, 51, 0.5);
-    }
   }
   .suggestion-content {
     margin-top: 50px;
+    .tip {
+      margin-top: 20px;
+      height: 0.5rem;
+      width: 100%;
+      position: relative;
+      img {
+        width: 0.5rem;
+        height: 0.5rem;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+      }
+    }
   }
 }
 </style>

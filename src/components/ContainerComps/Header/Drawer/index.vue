@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useVModel } from '@vueuse/core'
 import CommonForm from '@/components/CommonComps/Form/index.vue'
 
@@ -41,14 +41,12 @@ const changeForm = () => {
   }
 }
 
-const refreshHeader = inject('reloadHeader') as any
 const commonForm = ref(null)
 const resetForm = () => {
   commonForm.value.resetForm()
 }
 const confirm = () => {
   commonForm.value.submit()
-  refreshHeader()
   _drawerVisible.value = false
 }
 </script>

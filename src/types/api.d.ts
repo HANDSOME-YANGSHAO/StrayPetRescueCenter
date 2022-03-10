@@ -4,11 +4,4 @@ declare namespace API {
     message: string
     data?: T
   }
-  interface GetList<T> {
-    total: number
-    pageNum: number
-    pageSize: number
-    totalPage: number
-    rows: T[]
-  }
 }

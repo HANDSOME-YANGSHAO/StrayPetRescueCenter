@@ -62,6 +62,10 @@ import UploadAvatar from '../uploadAvatar/index.vue'
 import type { ElForm } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import { User, Lock, Phone, CopyDocument, Location } from '@element-plus/icons-vue'
+import { useUserInfoStore } from '@/store/userInfo'
+
+/* 引入userInfo公共状态库 */
+const userInfoStore = useUserInfoStore()
 
 /* 表单状态 */
 const props = defineProps({
@@ -97,49 +101,48 @@ const formData = reactive({
 
 /* 表单事件 */
 const onLogin = () => {
+  // 登录成功拿到userInfo
+  const result = {
+    userName: '帅气洋少',
+    avatar:
+      'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww1.sinaimg.cn%2Fmw690%2Fe1b8508cly1gc6qj475ctj20u00tutan.jpg&refer=http%3A%2F%2Fwww.sina.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648908845&t=b225b3d3cecfb7c550bd7bcd4595ea77'
+  }
   ElMessage({
     type: 'success',
     showClose: true,
     message: '登录成功'
   })
-  localStorage.setItem(
-    'userInfo',
-    JSON.stringify({
-      userName: '帅气洋少',
-      avatar:
-        'https://img2.baidu.com/it/u=3406964446,4038366459&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800'
-    })
-  )
+  userInfoStore.saveUserInfo(result, '假token')
+  userInfoStore.isLogged = true
 }
 const onRegister = () => {
+  // 注册成功拿到userInfo
+  const result = {
+    userName: '帅气洋少',
+    avatar:
+      'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww1.sinaimg.cn%2Fmw690%2Fe1b8508cly1gc6qj475ctj20u00tutan.jpg&refer=http%3A%2F%2Fwww.sina.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648908845&t=b225b3d3cecfb7c550bd7bcd4595ea77'
+  }
   ElMessage({
     type: 'success',
     showClose: true,
     message: '注册成功'
   })
-  localStorage.setItem(
-    'userInfo',
-    JSON.stringify({
-      userName: '帅气洋少',
-      avatar:
-        'https://img2.baidu.com/it/u=3406964446,4038366459&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800'
-    })
-  )
+  userInfoStore.saveUserInfo(result, '假token')
+  userInfoStore.isLogged = true
 }
 const onSetUserInfo = () => {
+  // 修改信息成功拿到userInfo
+  const result = {
+    userName: '帅气洋少',
+    avatar:
+      'https://img2.baidu.com/it/u=3406964446,4038366459&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800'
+  }
   ElMessage({
     type: 'success',
     showClose: true,
     message: '设置成功'
   })
-  localStorage.setItem(
-    'userInfo',
-    JSON.stringify({
-      userName: '帅气洋少',
-      avatar:
-        'https://img2.baidu.com/it/u=3406964446,4038366459&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800'
-    })
-  )
+  userInfoStore.saveUserInfo(result, '假token')
 }
 const resetForm = () => {
   ruleFormRef.value.resetFields()
