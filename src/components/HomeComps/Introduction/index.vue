@@ -30,13 +30,13 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { inject } from 'vue'
+import { useRouterStore } from '@/store/router'
 
-const reloadHeader = inject('reloadHeader') as any
 const router = useRouter()
+const routerStore = useRouterStore()
 const readMore = () => {
   router.push('/AdoptionCenter')
-  reloadHeader()
+  routerStore.getAciveIndex()
 }
 </script>
 

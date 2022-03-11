@@ -76,13 +76,13 @@ const goArticleDetail = () => {
   }
 }
 .describe-header {
-  display:flex;
-  justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 .communication-container {
-  margin-top: 100px;
+  margin-top: 1rem;
   padding: 0 2rem;
   .communication-titile {
     margin: 0.5rem 0;
@@ -100,6 +100,9 @@ const goArticleDetail = () => {
         }
         .describe {
           margin-top: 0.2rem;
+          .article-title {
+            font: 15px 微软雅黑, arial, Hiragino Sans GB, 宋体, sans-serif;
+          }
           .article-time {
             margin: 0.1rem 0;
             font: 15px 微软雅黑, arial, Hiragino Sans GB, 宋体, sans-serif;
@@ -121,7 +124,7 @@ const goArticleDetail = () => {
     }
   }
 }
-.right>.el-card {
+.right > .el-card {
   margin-bottom: 5px;
 }
 </style>

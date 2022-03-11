@@ -17,10 +17,10 @@
 import { reactive } from 'vue'
 
 const cardList = reactive([
-  { title: '流浪宠物领养', imgSrc: './homeImg/3.jpeg' },
-  { title: '宠物喂养', imgSrc: './homeImg/4.webp' },
-  { title: '捐献爱心', imgSrc: './homeImg/5.jpeg' },
-  { title: '宠物商城', imgSrc: './homeImg/6.jpeg' }
+  { title: '流浪宠物领养', imgSrc: './homeImg/宠物领养.jpeg' },
+  { title: '宠物喂养', imgSrc: './homeImg/宠物喂养.jpeg' },
+  { title: '捐献爱心', imgSrc: './homeImg/捐献爱心.jpeg' },
+  { title: '宠物商城', imgSrc: './homeImg/宠物商城.jpeg' }
 ])
 </script>
 
@@ -30,16 +30,6 @@ const cardList = reactive([
   margin-top: 0.5rem;
   .serve-title {
     text-align: center;
-    .theme {
-      color: #ef4136;
-      font-size: 0.35rem;
-      font-weight: bolder;
-      line-height: 1rem;
-    }
-    .guide {
-      font: 14px 微软雅黑, arial, Hiragino Sans GB, 宋体, sans-serif;
-      color: rgba(51, 51, 51, 0.5);
-    }
   }
   .serve-card {
     display: flex;
@@ -47,14 +37,12 @@ const cardList = reactive([
     align-items: center;
     margin-top: 0.4rem;
     .el-card {
-      width: 2.8rem;
-      height: 2.5rem;
-      border-radius: 0.1rem;
+      width: 3.5rem;
+      height: 3.5rem;
       position: relative;
       img {
-        width:2.8rem;
-        height:2.8rem;
-        border-radius: 10px;
+        width: 100%;
+        height: 100%;
         transition: transform 0.5s;
         transform: scale(1);
         &:hover {

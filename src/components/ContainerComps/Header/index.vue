@@ -4,10 +4,11 @@
       <img src="./img/logo.png" alt="logo" />
     </div>
     <el-menu
-      :default-active="currentPath"
+      :default-active="!lastPath ? '/home' : lastPath"
       mode="horizontal"
       :router="true"
       active-text-color="#ef4136"
+      @select="refreshLastPath"
     >
       <el-menu-item
         v-for="item in menuList"
@@ -84,10 +85,9 @@ const { isLogged, userInfo } = storeToRefs(userInfoStore)
 
 const routerStore = useRouterStore()
 const { lastPath } = storeToRefs(routerStore)
-
-const currentPath = computed(() => {
-  return !lastPath ? '/home' : lastPath
-})
+const refreshLastPath = () => {
+  routerStore.getAciveIndex()
+}
 
 const avatarSrc = computed(() => {
   return isLogged.value

@@ -1,13 +1,7 @@
 <template>
-  <div>
-    <h1>交流中心</h1>
-  </div>
+<ExchangeCenter />
 </template>
 
 <script setup lang="ts">
-
+import ExchangeCenter from '@/components/ExchangeComps/index.vue'
 </script>
-
-<style scoped>
-
-</style>

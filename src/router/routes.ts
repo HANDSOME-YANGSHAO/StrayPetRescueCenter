@@ -6,6 +6,9 @@ const FeedingRecord = (): unknown => import('../views/FeedingRecord.vue')
 const DonationRecord = (): unknown => import('../views/DonationRecord.vue')
 const ExchangeCenter = (): unknown => import('../views/ExchangeCenter.vue')
 const ShoppingMall = (): unknown => import('../views/ShoppingMall.vue')
+const Category = (): unknown => import('../components/ExchangeComps/Category/index.vue')
+const AllArticle = (): unknown => import('../components/ExchangeComps/AllArticle/index.vue')
+const MyArticle = (): unknown => import('../components/ExchangeComps/MyArticle/index.vue')
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -54,7 +57,21 @@ export const routes: RouteRecordRaw[] = [
     component: ExchangeCenter,
     meta: {
       title: '交流中心'
-    }
+    },
+    children: [
+      {
+        path: 'Category',
+        component: Category
+      },
+      {
+        path: 'AllArticle',
+        component: AllArticle
+      },
+      {
+        path: 'MyArticle',
+        component: MyArticle
+      }
+    ]
   },
   {
     name: 'ShoppingMall',
