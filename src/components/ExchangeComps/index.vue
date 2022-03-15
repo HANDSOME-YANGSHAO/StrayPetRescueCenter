@@ -17,6 +17,6 @@ import NavArea from './NavArea/index.vue'
   .exchangeCenter-container {
     box-sizing: border-box;
     width: 100%;
-    padding: 1rem 20%;
+    padding: 1rem 15%;
   }
 </style>

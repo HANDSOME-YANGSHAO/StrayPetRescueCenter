@@ -1,11 +1,14 @@
 <template>
   <div class="navbar">
     <div
-      v-for="(item,index) in navItem"
+      v-for="(item, index) in navItem"
       :key="item.path"
-      :class="activeIndex === index ? `nav-item active` : `nav-item` "
+      :class="activeIndex === index ? `nav-item active` : `nav-item`"
       @click="changeNav(item.path, index)"
     >{{ item.title }}</div>
+  </div>
+  <div class="nav-images">
+    <img src="../../../assets/img/交流中心封面.webp" />
   </div>
 </template>
 
@@ -32,12 +35,15 @@ const changeNav = (path: string, index: number) => {
 
 <style scoped lang="scss">
 .active {
-   color: var(--ourTextColor);
+  color: white;
 }
 .navbar {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-color: rgba(247, 129, 28);
+  border-radius: 5px;
+  width: 100%;
   .nav-item {
     width: 1rem;
     height: 0.5rem;
@@ -46,8 +52,18 @@ const changeNav = (path: string, index: number) => {
     text-align: center;
     cursor: pointer;
     &:hover {
-      color: var(--ourTextColor);
+      color: white;
+      // color: var(--ourTextColor);
     }
+  }
+}
+.nav-images {
+  margin-top: 0.5rem;
+  width: 25vw;
+  height: 25vw;
+  img {
+    height: 100%;
+    width: 100%;
   }
 }
 </style>

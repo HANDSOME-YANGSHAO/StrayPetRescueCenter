@@ -16,7 +16,7 @@
         <el-popconfirm
           confirm-button-text="确认"
           cancel-button-text="取消"
-          title="是否投递建议~"
+          :title="title"
           :hide-icon="true"
         >
           <template #reference>
@@ -40,6 +40,9 @@ const { isLogged } = storeToRefs(userInfoStore)
 
 const placeholder = computed(() => {
   return isLogged.value ? '收集大家意见，集思广益，共同进步~' : '请先登录！'
+})
+const title = computed(() => {
+  return isLogged.value ? '是否投递建议~' : '请先登录！'
 })
 </script>
 
