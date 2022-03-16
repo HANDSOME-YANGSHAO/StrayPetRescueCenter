@@ -31,36 +31,15 @@
         </el-card>
       </div>
       <div class="right">
-        <el-card shadow="hover" class="aticle-card" v-for="n in 4" :key="n">
-          <div class="describe">
-            <div class="describe-header">
-              <div class="article-title">{{ '柴犬' }}</div>
-              <div class="article-time">{{ ' 2022年 9月10号' }}</div>
-            </div>
-            <div class="aritcle-outline">
-              《日本柴犬年龄区分的规定》
-              一.幼稚犬组:为四个月未满的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-              二.幼犬组：为四个月以上的雄、雌；
-            </div>
-          </div>
-        </el-card>
+        <ArticleCard  v-for="item in 4" :key="item"/>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import ArticleCard from '@/components/CommonComps/ArticleCard/index.vue'
+
 const goArticleDetail = () => {
   console.log('携带文章id跳转到交流中心')
 }

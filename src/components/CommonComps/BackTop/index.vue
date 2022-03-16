@@ -6,17 +6,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { scrollToPosition } from '../../../utils/scrollToPosition'
 
-let backTopVisble = ref(false)
+const backTopVisble = ref(false)
 
 const backToTop = () => {
   scrollToPosition(0, 300)
 }
 
 document.body.onscroll = () => {
-  if(document.documentElement.scrollTop < 1000) {
+  if (document.documentElement.scrollTop < 1000) {
     backTopVisble.value = false
   } else {
     backTopVisble.value = true

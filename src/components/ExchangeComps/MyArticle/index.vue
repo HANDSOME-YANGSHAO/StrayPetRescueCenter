@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <h1>我的文章</h1>
-  </div>
+  <ArticleList :article-list-type="2" />
 </template>
 
 <script setup lang="ts">
-
+import ArticleList from '@/components/CommonComps/ArticleList/index.vue'
 </script>
 
 <style scoped>

@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <h1>所有文章</h1>
-  </div>
+  <ArticleList :article-list-type="1" />
 </template>
 
 <script setup lang="ts">
-
+import ArticleList from '@/components/CommonComps/ArticleList/index.vue'
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
 </style>

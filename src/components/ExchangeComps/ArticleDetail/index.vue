@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>目录</h1>
+    <h1>文章详情页</h1>
   </div>
 </template>
 
@@ -8,6 +8,5 @@
 
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
 </style>
