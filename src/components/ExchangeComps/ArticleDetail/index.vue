@@ -8,29 +8,42 @@
     <img class="avatar" :src="articleData.avatar" />
     <div class="other">
       <div class="authorName">{{ articleData.authorName }}</div>
-      <div class="publishTime">{{ articleData.publishTime + ` - 阅读量${articleData.hitsNum}` }}</div>
+      <div class="publishTime">
+        {{ articleData.publishTime + ` - 阅读量${articleData.hitsNum}` }}
+      </div>
     </div>
     <el-button class="follow">+ 关注</el-button>
   </div>
   <div class="content">{{ articleData.content }}</div>
   <div class="thumbs">
     <span>给这篇文章点赞~</span>
-    <div class="right">
-      <img v-if="thumbsVisible" src="../../../assets/svg/点赞.svg" />
+    <div class="right" @click="thumbsUp">
+      <img v-if="!thumbsActive" src="../../../assets/svg/点赞.svg" />
       <img v-else src="../../../assets/svg/点赞成功.svg" />
       <span>{{ articleData.thumbsUpNum }}</span>
     </div>
   </div>
+  <Comment />
 </template>
 
 <script setup lang="ts">
-import { ref, Ref } from 'vue'
+import { ref, Ref, provide } from 'vue'
+import { useRoute } from 'vue-router'
+import Comment from '@/components/CommonComps/Comment/index.vue'
+
+const route = useRoute()
+const articleId = route.query.id
+// 文章详情页面中，可以给评论使用
+provide('articleId', articleId)
+console.log(articleId, '文章id')
 
 /* 文章数据的假数据 */
 const articleData: Ref<INFO.ArticleData> = ref({
+  id: '9999',
   title: '如何培养好柴犬的生活习惯？',
-  avatar: 'https://p26-passport.byteacctimg.com/img/user-avatar/4b9b94b97a7a735e87facbea7cacdcbc~300x300.image',
-  authorName: '姓名',
+  avatar:
+    'https://p26-passport.byteacctimg.com/img/user-avatar/4b9b94b97a7a735e87facbea7cacdcbc~300x300.image',
+  authorName: '李老三',
   publishTime: '2022年3月17日 14:22',
   hitsNum: 305,
   replyNum: 10,
@@ -44,7 +57,12 @@ const articleData: Ref<INFO.ArticleData> = ref({
     在训练柴犬的时候，主人需要蹲在柴犬的右侧，并且发出口令，把左手放在柴犬的背上，用手轻轻的按住柴犬的臀部和后腿，手动让他坐下。
     主人们需要注意，训练柴犬的最佳时间是4~6个月大的时候，训练它最好先从基本的坐、握手之类的学起，服从性训练好之后就可以考虑下一步了，还有训练的时候不能超十五分钟哦。 `
 })
-const thumbsVisible = ref(true)
+
+const thumbsActive = ref(false)
+const thumbsUp = () => {
+  thumbsActive.value = !thumbsActive.value
+  thumbsActive.value ? articleData.value.thumbsUpNum++ : articleData.value.thumbsUpNum--
+}
 </script>
 
 <style scoped lang="scss">
@@ -58,6 +76,7 @@ const thumbsVisible = ref(true)
   .avatar {
     width: 45px;
     height: 45px;
+    margin-right: 10px;
     border-radius: 50%;
   }
   .other {

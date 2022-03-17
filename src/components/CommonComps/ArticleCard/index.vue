@@ -23,25 +23,33 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useUserInfoStore } from '@/store/userInfo'
 import { storeToRefs } from 'pinia'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import Badge from '../Badge/index.vue'
 
-defineProps({
-  articleData: {
+const props = defineProps({
+  articleItem: {
     type: Object,
     default: () => {
       return {
+        id: '9999',
         title: '标题',
         publishTime: '文章创建时间',
         content: '文章内容',
         hitsNum: 15,
-        replyNum: 10
+        replyNum: 10,
+        authorName: '作者',
+        avatar: '',
+        thumbsUpNum: 1
       } as INFO.ArticleData
     }
   }
+})
+const articleData = ref({
+  ...props.articleItem
 })
 
 const userInfoStore = useUserInfoStore()
@@ -56,7 +64,12 @@ const articlDetail = () => {
     })
     return
   }
-  router.push('/ExchangeCenter/ArticleDetail')
+  router.push({
+    path: '/ExchangeCenter/ArticleDetail',
+    query: {
+      id: articleData.value.id
+    }
+  })
   console.log('携带文章id进入文章详情页面')
 }
 </script>

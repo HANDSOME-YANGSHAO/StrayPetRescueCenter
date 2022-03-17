@@ -4,7 +4,7 @@ export const useUserInfoStore = defineStore({
   id: 'userInfoStore',
   state: () => {
     return {
-      userInfo: null,
+      userInfo: null as INFO.userInfo,
       isLogged: false,
       token: null
     }
