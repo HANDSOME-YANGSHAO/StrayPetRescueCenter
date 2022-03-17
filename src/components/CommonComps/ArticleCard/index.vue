@@ -7,6 +7,18 @@
       </div>
       <div class="aritcle-outline">{{ articleData.content }}</div>
     </div>
+    <div class="badge-group">
+      <Badge :number="articleData.hitsNum">
+        <template #icon>
+          <img src="../../../assets/svg/点击量.svg" />
+        </template>
+      </Badge>
+      <Badge :number="articleData.replyNum">
+        <template #icon>
+          <img src="../../../assets/svg/回复.svg" />
+        </template>
+      </Badge>
+    </div>
   </el-card>
 </template>
 
@@ -15,6 +27,7 @@ import { useUserInfoStore } from '@/store/userInfo'
 import { storeToRefs } from 'pinia'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
+import Badge from '../Badge/index.vue'
 
 defineProps({
   articleData: {
@@ -22,8 +35,10 @@ defineProps({
     default: () => {
       return {
         title: '标题',
-        time: '文章创建时间',
-        content: '文章内容'
+        publishTime: '文章创建时间',
+        content: '文章内容',
+        hitsNum: 15,
+        replyNum: 10
       } as INFO.ArticleData
     }
   }
@@ -41,7 +56,7 @@ const articlDetail = () => {
     })
     return
   }
-  router.push('/ExchangeCenter/AritcleDeatil')
+  router.push('/ExchangeCenter/ArticleDetail')
   console.log('携带文章id进入文章详情页面')
 }
 </script>
@@ -76,5 +91,9 @@ const articlDetail = () => {
       overflow: hidden;
     }
   }
+}
+.badge-group {
+  display: flex;
+  justify-content: right;
 }
 </style>

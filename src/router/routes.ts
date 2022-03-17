@@ -68,7 +68,7 @@ export const routes: RouteRecordRaw[] = [
         component: MyArticle
       },
       {
-        path: 'AritcleDeatil',
+        path: 'ArticleDetail',
         component: ArticleDetail
       }
     ]

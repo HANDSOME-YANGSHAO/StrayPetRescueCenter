@@ -23,7 +23,8 @@
     "defineProps": true,
     "defineEmits": true,
     "defineExpose": true,
-    "ElMessage": true
+    "ElMessage": true,
+    "withDefaults": true
   },
   "rules": {
     // "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",

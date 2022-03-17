@@ -7,7 +7,12 @@ declare namespace INFO {
 
   interface ArticleData {
     title: string
-    time: string
+    avatar: string
+    authorName: string
+    publishTime: string
     content: string
+    hitsNum: number
+    replyNum: number
+    thumbsUpNum: number
   }
 }
