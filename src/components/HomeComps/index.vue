@@ -3,7 +3,7 @@
     <Carousel />
     <Serve />
     <Introduction />
-    <Communication/>
+    <Communication />
     <Suggestion />
   </div>
 </template>
@@ -14,7 +14,6 @@ import Serve from './Serve/index.vue'
 import Introduction from './Introduction/index.vue'
 import Communication from './Communication/index.vue'
 import Suggestion from './Suggestion/index.vue'
-
 </script>
 
 <style scoped lang="scss">

@@ -9,13 +9,13 @@
       <div class="publishTime">{{ commentData.publishTime }}</div>
     </div>
     <div class="badge-group">
-      <Badge class="pointer" :number="15" @click="thumbsUp">
+      <Badge class="pointer" :number="commentData.thumbsUpNum" @click="thumbsUp">
         <template #icon>
           <img v-if="!thumbsActive" src="../../../../assets/svg/点赞.svg" />
           <img v-else src="../../../../assets/svg/点赞成功.svg" />
         </template>
       </Badge>
-      <Badge class="pointer" :number="15">
+      <Badge class="pointer" :number="commentData.replyNum">
         <template #icon> <img src="../../../../assets/svg/回复黑.svg" /> </template
       ></Badge>
     </div>
@@ -38,7 +38,7 @@ const props = defineProps({
         pickName: '李老三',
         publishTime: '2022年3月17日 14:22',
         replyNum: 10,
-        thumbsUpNum: 200,
+        thumbsUpNum: 14,
         content: ' sa！喔脉络字谜卡ze儿洛，喔磊哇卡灭勒达joker!'
       } as INFO.CommentData
     }
@@ -53,6 +53,7 @@ const thumbsActive = ref(false)
 const thumbsUp = () => {
   thumbsActive.value = !thumbsActive.value
   // 发送请求让点赞数量加和减
+  thumbsActive.value ? commentData.value.thumbsUpNum++ : commentData.value.thumbsUpNum--
 }
 </script>
 

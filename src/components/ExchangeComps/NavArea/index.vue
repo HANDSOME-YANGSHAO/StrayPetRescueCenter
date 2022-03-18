@@ -39,6 +39,7 @@ const changeNav = (path: string, index: number) => {
     })
     return
   }
+
   activeIndex.value = index
   localStorage.setItem('articleNavIndex', index + '')
   router.push(path)
@@ -48,6 +49,7 @@ const changeNav = (path: string, index: number) => {
 /* 记录激活的二级路由信息，刷新的时候保存激活的导航效果 */
 const articleNavIndex = Number(localStorage.getItem('articleNavIndex')) // 第一次取到null，Number(null) --> 0 默认指向所有文章
 changeNav(navItem.value[articleNavIndex].path, articleNavIndex)
+
 </script>
 
 <style scoped lang="scss">

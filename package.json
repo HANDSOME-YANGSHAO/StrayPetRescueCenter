@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.0.0",
+    "@wangeditor/editor": "^0.15.15",
+    "@wangeditor/editor-for-vue": "^5.1.8-11",
     "axios": "^0.20.0-0",
     "element-plus": "^2.0.4",
     "lodash": "^4.17.21",

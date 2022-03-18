@@ -24,10 +24,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useUserInfoStore } from '@/store/userInfo'
-import { storeToRefs } from 'pinia'
-import { ElMessage } from 'element-plus'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import Badge from '../Badge/index.vue'
 
 const props = defineProps({
@@ -52,25 +49,22 @@ const articleData = ref({
   ...props.articleItem
 })
 
-const userInfoStore = useUserInfoStore()
-const { isLogged } = storeToRefs(userInfoStore)
 const router = useRouter()
+const route = useRoute()
 /* 携带文章id，进入文章的详情页面 */
 const articlDetail = () => {
-  if (!isLogged.value) {
-    ElMessage({
-      message: '请先登录！',
-      type: 'warning'
+  if (route.path === '/Home') {
+    router.push('/ExchangeCenter/AllArticle')
+    console.log('进入全部文章')
+  } else {
+    router.push({
+      path: '/ExchangeCenter/ArticleDetail',
+      query: {
+        id: articleData.value.id
+      }
     })
-    return
+    console.log('携带文章id进入文章详情页面')
   }
-  router.push({
-    path: '/ExchangeCenter/ArticleDetail',
-    query: {
-      id: articleData.value.id
-    }
-  })
-  console.log('携带文章id进入文章详情页面')
 }
 </script>
 
