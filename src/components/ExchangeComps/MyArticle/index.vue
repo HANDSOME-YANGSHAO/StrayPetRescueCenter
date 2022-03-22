@@ -7,5 +7,4 @@ import ArticleList from '@/components/CommonComps/ArticleList/index.vue'
 </script>
 
 <style scoped>
-
 </style>
