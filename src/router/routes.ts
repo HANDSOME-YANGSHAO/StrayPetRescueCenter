@@ -9,6 +9,7 @@ const ShoppingMall = (): unknown => import('../views/ShoppingMall.vue')
 const AllArticle = (): unknown => import('../components/ExchangeComps/AllArticle/index.vue')
 const MyArticle = (): unknown => import('../components/ExchangeComps/MyArticle/index.vue')
 const ArticleDetail = (): unknown => import('../components/ExchangeComps/ArticleDetail/index.vue')
+const PublishArticle = (): unknown => import('../components/ExchangeComps/PublishArticle/index.vue')
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -70,6 +71,10 @@ export const routes: RouteRecordRaw[] = [
       {
         path: 'ArticleDetail',
         component: ArticleDetail
+      },
+      {
+        path: 'PublishArticle',
+        component: PublishArticle
       }
     ]
   },

@@ -25,6 +25,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { useRouterStore } from '@/store/router'
 import Badge from '../Badge/index.vue'
 
 const props = defineProps({
@@ -51,6 +52,7 @@ const articleData = ref({
 
 const router = useRouter()
 const route = useRoute()
+const routerStore = useRouterStore()
 /* 携带文章id，进入文章的详情页面 */
 const articlDetail = () => {
   if (route.path === '/Home') {
@@ -65,6 +67,7 @@ const articlDetail = () => {
     })
     console.log('携带文章id进入文章详情页面')
   }
+  routerStore.getAciveIndex()
 }
 </script>
 

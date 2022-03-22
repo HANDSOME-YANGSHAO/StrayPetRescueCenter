@@ -42,6 +42,7 @@ declare module 'vue' {
     Layout: typeof import('./src/components/ContainerComps/Layout/layout.vue')['default']
     MyArticle: typeof import('./src/components/ExchangeComps/MyArticle/index.vue')['default']
     NavArea: typeof import('./src/components/ExchangeComps/NavArea/index.vue')['default']
+    PublishArticle: typeof import('./src/components/ExchangeComps/PublishArticle/index.vue')['default']
     Serve: typeof import('./src/components/HomeComps/Serve/index.vue')['default']
     Suggestion: typeof import('./src/components/HomeComps/Suggestion/index.vue')['default']
     UploadAvatar: typeof import('./src/components/CommonComps/UploadAvatar/index.vue')['default']
