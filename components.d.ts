@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AdoptionCenter: typeof import('./src/components/AdoptionCenter/index.vue')['default']
     AllArticle: typeof import('./src/components/ExchangeComps/AllArticle/index.vue')['default']
     ArticleCard: typeof import('./src/components/CommonComps/ArticleCard/index.vue')['default']
     ArticleDetail: typeof import('./src/components/ExchangeComps/ArticleDetail/index.vue')['default']
@@ -18,6 +19,7 @@ declare module 'vue' {
     Content: typeof import('./src/components/ContainerComps/Content/index.vue')['default']
     Drawer: typeof import('./src/components/ContainerComps/Header/Drawer/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElButtonds: typeof import('element-plus/es')['ElButtonds']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
@@ -28,9 +30,11 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElOption: typeof import('element-plus/es')['ElOption']
     ElPagination: typeof import('element-plus/es')['ElPagination']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
     ElRadio: typeof import('element-plus/es')['ElRadio']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     ExchangeComps: typeof import('./src/components/ExchangeComps/index.vue')['default']
@@ -44,6 +48,7 @@ declare module 'vue' {
     NavArea: typeof import('./src/components/ExchangeComps/NavArea/index.vue')['default']
     Serve: typeof import('./src/components/HomeComps/Serve/index.vue')['default']
     Suggestion: typeof import('./src/components/HomeComps/Suggestion/index.vue')['default']
+    Test: typeof import('./src/components/ExchangeComps/test/index.vue')['default']
     UploadAvatar: typeof import('./src/components/CommonComps/UploadAvatar/index.vue')['default']
   }
 }

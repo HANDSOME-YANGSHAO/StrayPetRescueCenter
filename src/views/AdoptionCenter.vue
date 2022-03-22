@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <h1>领养中心</h1>
-  </div>
+  <AdoptionCenter />
 </template>
 
-<script setup lang="ts"></script>
-
-<style scoped></style>
+<script setup lang="ts">
+import AdoptionCenter from '@/components/AdoptionCenter/index.vue'
+</script>
