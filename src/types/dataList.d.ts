@@ -1,4 +1,5 @@
 declare namespace INFO {
+
   interface pagination{
     pageNum: number
     pageSize: number
@@ -24,5 +25,17 @@ declare namespace INFO {
     content: string
     thumbsUpNum: number
     replyNum: number
+  }
+
+  interface PetData {
+    petName: string
+    age: string
+    contactInfo: string
+    petDetail: string
+    sex: string
+    petCategory: string
+    character: string
+    vaccinated: string
+    adoptionRecord: string
   }
 }

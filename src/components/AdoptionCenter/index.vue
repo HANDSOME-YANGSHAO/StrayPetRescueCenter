@@ -54,8 +54,8 @@
         <el-tooltip content="点击发布领养信息" placement="left" effect="light">
           <el-button type="primary" @click="publishAdoptionInfo" :icon="Edit" circle />
         </el-tooltip>
-        <el-dialog v-model="publishDialogVisible" title="发布领养信息">
-          <PublishForm />
+        <el-dialog v-model="publishDialogVisible" title="发布领养信息" :close-delay="300">
+          <PublishForm v-model:publishDialogVisible="publishDialogVisible"/>
         </el-dialog>
       </div>
     </div>

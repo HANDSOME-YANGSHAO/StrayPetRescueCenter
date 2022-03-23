@@ -6,22 +6,24 @@
     :rules="publishRules"
     :hide-required-asterisk="true"
   >
-    <el-form-item label="图片">
-      <el-upload
-        action="https://jsonplaceholder.typicode.com/posts/"
-        list-type="picture-card"
-        :on-preview="handlePictureCardPreview"
-        :on-remove="handleRemove"
-        :file-list="fileList"
-        :before-upload="addFlieList"
-      >
-        <el-icon>
-          <Plus />
-        </el-icon>
-      </el-upload>
-      <el-dialog v-model="dialogVisible">
-        <img style="width: 100%" :src="dialogImageUrl" />
-      </el-dialog>
+    <el-form-item label="宠物名" prop="petName">
+      <el-input v-model="formData.petName"></el-input>
+    </el-form-item>
+    <el-form-item label="联系方式" prop="contactInfo">
+      <el-input v-model="formData.contactInfo"></el-input>
+    </el-form-item>
+    <el-form-item label="宠物年龄" prop="age">
+      <el-input v-model="formData.age"></el-input>
+    </el-form-item>
+    <el-form-item label="性别">
+      <el-select v-model="formData.sex">
+        <el-option
+          v-for="item in sexOptions"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
     </el-form-item>
     <el-form-item label="类别">
       <el-select v-model="formData.petCategory">
@@ -53,18 +55,46 @@
         />
       </el-select>
     </el-form-item>
-    <el-form-item label="领养状态">
-      <el-select v-model="formData.adoptionRecord">
-        <el-option
-          v-for="item in adoptionRecordOptionsPublish"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
+    <el-form-item label="宠物详情">
+      <el-input
+        v-model="formData.petDetail"
+        type="textarea"
+        :autosize="{ minRows: 3 }"
+        placeholder="这里可以写上宠物的详情信息喔"
+      />
+    </el-form-item>
+    <el-form-item label="图片">
+      <el-upload
+        action="https://jsonplaceholder.typicode.com/posts/"
+        list-type="picture-card"
+        :on-preview="handlePictureCardPreview"
+        :on-remove="handleRemove"
+        :file-list="fileList"
+        :before-upload="addFlieList"
+      >
+        <el-icon>
+          <Plus />
+        </el-icon>
+      </el-upload>
+      <el-dialog v-model="dialogVisible">
+        <img style="width: 100%" :src="dialogImageUrl" />
+      </el-dialog>
     </el-form-item>
     <el-form-item>
-      <el-button @click="onPublish">提交</el-button>
+      <div class="buttonGroup">
+        <el-popconfirm
+          title="确认发布领养信息？"
+          @confirm="onPublish(ruleFormRef)"
+          hide-icon
+          confirm-button-text="是"
+          cancel-button-text="否"
+        >
+          <template #reference>
+            <el-button type="primary" round>提交</el-button>
+          </template>
+        </el-popconfirm>
+        <el-button @click="onCancel" round>取消</el-button>
+      </div>
     </el-form-item>
   </el-form>
 </template>
@@ -75,7 +105,20 @@ import { reactive, ref } from 'vue'
 import { publishRules } from './formRules'
 import type { ElForm, UploadFile, UploadUserFile } from 'element-plus'
 import { ElMessage } from 'element-plus'
-import { petCategoryOptionsPublish, vaccinatedOptionsPublish, adoptionRecordOptionsPublish, characterOptionsPublish } from '../common'
+import { useVModel } from '@vueuse/core'
+import {
+  petCategoryOptionsPublish,
+  vaccinatedOptionsPublish,
+  characterOptionsPublish,
+  sexOptions
+} from '../common'
+
+/* 父对话框的显示属性，和子表单双向绑定 */
+const props = defineProps({
+  publishDialogVisible: Boolean
+})
+const emit = defineEmits(['update:publishDialogVisible'])
+const _publishDialogVisible = useVModel(props, 'publishDialogVisible', emit)
 
 /* 表单引用 */
 type FormInstance = InstanceType<typeof ElForm>
@@ -83,23 +126,39 @@ const ruleFormRef = ref<FormInstance>(null)
 
 /* 表单数据 */
 const formData = reactive({
+  petName: '',
+  age: '',
+  contactInfo: '',
+  petDetail: '',
+  sex: '0',
   petCategory: '0',
   character: '0',
-  vaccinated: '0',
-  adoptionRecord: '0'
+  vaccinated: '0'
 })
 
 /* 表单事件 */
 const resetForm = () => {
   ruleFormRef.value.resetFields()
 }
-const onPublish = () => {
-  ElMessage({
-    type: 'success',
-    showClose: true,
-    message: '发布成功'
+const onPublish = async (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  await formEl.validate((valid, fields) => {
+    if (valid) {
+      ElMessage({
+        type: 'success',
+        showClose: true,
+        message: '发布成功'
+      })
+      resetForm()
+      _publishDialogVisible.value = false
+    } else {
+      console.log('error submit!', fields)
+    }
   })
+}
+const onCancel = () => {
   resetForm()
+  _publishDialogVisible.value = false
 }
 
 /* 上传图片 */
@@ -129,7 +188,15 @@ const addFlieList = (file) => {
 
 <style scoped lang="scss">
 .el-input {
-  width: 30%;
-  min-width: 500px;
+  width: 40%;
+}
+.buttonGroup {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 40px 10px 0;
+  .el-button {
+    width: 30%;
+  }
 }
 </style>

@@ -128,3 +128,17 @@ export const characterOptionsPublish = [
     label: '高冷'
   }
 ]
+export const sexOptions = [
+  {
+    value: '0',
+    label: '其它'
+  },
+  {
+    value: '1',
+    label: '小王子'
+  },
+  {
+    value: '2',
+    label: '小公举'
+  }
+]
