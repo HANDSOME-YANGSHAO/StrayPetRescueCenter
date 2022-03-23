@@ -3,11 +3,7 @@
     <!-- 查询头部 -->
     <div class="adoptionCenter-header">
       <div class="vagueSearch">
-        <el-input
-          v-model="formData.vagueSearchValue"
-          :prefix-icon="Search"
-          placeholder="搜索"
-        ></el-input>
+        <el-input v-model="formData.vagueSearchValue" :prefix-icon="Search" placeholder="搜索"></el-input>
         <el-button type="primary">查询</el-button>
       </div>
       <div class="classification">
@@ -56,8 +52,11 @@
       </div>
       <div class="publishAdoptionInfo">
         <el-tooltip content="点击发布领养信息" placement="left" effect="light">
-          <el-button type="primary" :icon="Edit" circle />
+          <el-button type="primary" @click="publishAdoptionInfo" :icon="Edit" circle />
         </el-tooltip>
+        <el-dialog v-model="publishDialogVisible" title="发布领养信息">
+          <PublishForm />
+        </el-dialog>
       </div>
     </div>
     <!-- 领养宠物列表 -->
@@ -77,81 +76,14 @@
 import { Search, Edit } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import PetsList from './PetsList/index.vue'
-
-const petCategoryOptions = [
-  {
-    value: '0',
-    label: '犬科'
-  },
-  {
-    value: '1',
-    label: '猫科'
-  },
-  {
-    value: '2',
-    label: '其它'
-  },
-  {
-    value: '3',
-    label: '全部'
-  }
-]
-const vaccinatedOptions = [
-  {
-    value: '0',
-    label: '未接种'
-  },
-  {
-    value: '1',
-    label: '已接种'
-  },
-  {
-    value: '3',
-    label: '全部'
-  }
-]
-const adoptionRecordOptions = [
-  {
-    value: '0',
-    label: '已领养'
-  },
-  {
-    value: '1',
-    label: '未领养'
-  },
-  {
-    value: '2',
-    label: '全部'
-  }
-]
-const characterOptions = [
-  {
-    value: '0',
-    label: '慢热'
-  },
-  {
-    value: '1',
-    label: '活泼'
-  },
-  {
-    value: '2',
-    label: '佛系'
-  },
-  {
-    value: '3',
-    label: '高冷'
-  },
-  {
-    value: '4',
-    label: '全部'
-  }
-]
+import PublishForm from './PublishForm/index.vue'
+import { petCategoryOptions, vaccinatedOptions, adoptionRecordOptions, characterOptions } from './common'
 
 const INITIAL_DATA = {
   vagueSearchValue: '',
   petCategory: '3',
   vaccinated: '3',
-  adoptionRecord: '2',
+  adoptionRecord: '3',
   character: '4',
   pagination: {
     pageNum: 1,
@@ -211,6 +143,12 @@ const fakeData = [
 
 const handleCurrentChange = () => {
   console.log('现在的页数改变, 根据查询表单查询分页领养宠物数据列表')
+}
+
+/* 发布领养信息表单 */
+const publishDialogVisible = ref(false)
+const publishAdoptionInfo = () => {
+  publishDialogVisible.value = true
 }
 </script>
 
