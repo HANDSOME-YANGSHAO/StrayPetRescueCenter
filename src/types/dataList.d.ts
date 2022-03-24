@@ -31,7 +31,7 @@ declare namespace INFO {
     petName: string
     age: string
     contactInfo: string
-    petDetail: string
+    petIntroduction: string
     sex: string
     petCategory: string
     character: string

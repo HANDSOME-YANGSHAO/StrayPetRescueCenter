@@ -55,9 +55,9 @@
         />
       </el-select>
     </el-form-item>
-    <el-form-item label="宠物详情">
+    <el-form-item label="宠物介绍">
       <el-input
-        v-model="formData.petDetail"
+        v-model="formData.petIntroduction"
         type="textarea"
         :autosize="{ minRows: 3 }"
         placeholder="这里可以写上宠物的详情信息喔"
@@ -129,7 +129,7 @@ const formData = reactive({
   petName: '',
   age: '',
   contactInfo: '',
-  petDetail: '',
+  petIntroduction: '',
   sex: '0',
   petCategory: '0',
   character: '0',

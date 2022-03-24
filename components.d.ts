@@ -48,6 +48,7 @@ declare module 'vue' {
     MyArticle: typeof import('./src/components/ExchangeComps/MyArticle/index.vue')['default']
     NavArea: typeof import('./src/components/ExchangeComps/NavArea/index.vue')['default']
     PetCard: typeof import('./src/components/AdoptionCenter/PetsList/PetCard/index.vue')['default']
+    PetDetail: typeof import('./src/components/AdoptionCenter/PetsList/PetDetail/index.vue')['default']
     PetsList: typeof import('./src/components/AdoptionCenter/PetsList/index.vue')['default']
     PublishArticle: typeof import('./src/components/ExchangeComps/PublishArticle/index.vue')['default']
     PublishForm: typeof import('./src/components/AdoptionCenter/PublishForm/index.vue')['default']
