@@ -60,7 +60,7 @@
       />
 
       <!-- 发布投喂记录的drawer -->
-      <el-drawer v-model="publishFeedRecordDrawerVisible" direction="rtl">
+      <el-drawer v-model="publishFeedRecordDrawerVisible" direction="rtl" size="60%">
         <template #title>
           <h2>发布投喂记录</h2>
         </template>

@@ -8,7 +8,10 @@
       :hide-required-asterisk="true"
     >
       <el-form-item label="宠物名" prop="petName">
-        <el-input v-model="formData.petName" placeholder="可以取一个代称（小白，大橘等）"></el-input>
+        <el-input
+          v-model="formData.petName"
+          placeholder="可以取一个代称（小白，大橘等）"
+        ></el-input>
       </el-form-item>
       <el-form-item label="喂食地点" prop="feedPlace">
         <el-input v-model="formData.feedPlace" placeholder="填写喂食地点"></el-input>
@@ -46,21 +49,23 @@
           <img style="width: 100%" :src="dialogImageUrl" />
         </el-dialog>
       </el-form-item>
+      <el-form-item>
+        <div class="buttonGroup">
+          <el-popconfirm
+            title="确认发布投喂记录？"
+            @confirm="onPublish(ruleFormRef)"
+            hide-icon
+            confirm-button-text="是"
+            cancel-button-text="否"
+          >
+            <template #reference>
+              <el-button type="primary" round>提交</el-button>
+            </template>
+          </el-popconfirm>
+          <el-button @click="onCancel" round>取消</el-button>
+        </div>
+      </el-form-item>
     </el-form>
-    <div class="buttonGroup">
-      <el-popconfirm
-        title="确认发布投喂记录？"
-        @confirm="onPublish(ruleFormRef)"
-        hide-icon
-        confirm-button-text="是"
-        cancel-button-text="否"
-      >
-        <template #reference>
-          <el-button type="primary" round>提交</el-button>
-        </template>
-      </el-popconfirm>
-      <el-button @click="onCancel" round>取消</el-button>
-    </div>
   </div>
 </template>
 
@@ -150,12 +155,10 @@ const addFlieList = (file) => {
   display: flex;
   .el-form {
     width: 100%;
-    height: 90%;
   }
 
   .buttonGroup {
     width: 100%;
-    height: 10%;
     display: flex;
     justify-content: space-between;
     margin: 10px 40px 10px 0;
