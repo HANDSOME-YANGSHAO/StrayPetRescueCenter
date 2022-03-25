@@ -68,6 +68,10 @@ export const characterOptions = [
   },
   {
     value: '4',
+    label: '温顺'
+  },
+  {
+    value: '5',
     label: '全部'
   }
 ]
@@ -126,6 +130,10 @@ export const characterOptionsPublish = [
   {
     value: '3',
     label: '高冷'
+  },
+  {
+    value: '4',
+    label: '温和'
   }
 ]
 export const sexOptions = [

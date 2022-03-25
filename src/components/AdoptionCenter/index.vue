@@ -3,8 +3,12 @@
     <!-- 查询头部 -->
     <div class="adoptionCenter-header">
       <div class="vagueSearch">
-        <el-input v-model="formData.vagueSearchValue" :prefix-icon="Search" placeholder="搜索"></el-input>
-        <el-button type="primary">查询</el-button>
+        <el-input
+          v-model="formData.vagueSearchValue"
+          :prefix-icon="Search"
+          placeholder="搜索"
+        ></el-input>
+        <el-button type="primary" @click="onSimulationQuery">查询</el-button>
       </div>
       <div class="classification">
         <el-form :inline="true" :model="formData" label-position="top">
@@ -52,15 +56,15 @@
       </div>
       <div class="publishAdoptionInfo">
         <el-tooltip content="点击发布领养信息" placement="left" effect="light">
-          <el-button type="primary" @click="publishAdoptionInfo" :icon="Edit" circle />
+          <el-button type="primary" @click="publishAdoptionInfo" :icon="Edit" :disabled="!isLogged" circle />
         </el-tooltip>
-        <el-dialog v-model="publishDialogVisible" title="发布领养信息" :close-delay="300">
-          <PublishForm v-model:publishDialogVisible="publishDialogVisible"/>
+        <el-dialog v-model="publishDialogVisible" title="发布领养信息" :close-delay="50">
+          <PublishForm v-model:publishDialogVisible="publishDialogVisible" />
         </el-dialog>
       </div>
     </div>
     <!-- 领养宠物列表 -->
-    <PetsList :pet-list="fakeData" />
+    <PetsList v-if="simulationQuery" :pet-list="fakeData" />
     <!-- 分页 -->
     <el-pagination
       v-model:currentPage="formData.pagination.pageNum"
@@ -77,14 +81,28 @@ import { Search, Edit } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import PetsList from './PetsList/index.vue'
 import PublishForm from './PublishForm/index.vue'
-import { petCategoryOptions, vaccinatedOptions, adoptionRecordOptions, characterOptions } from './common'
+import {
+  petCategoryOptions,
+  vaccinatedOptions,
+  adoptionRecordOptions,
+  characterOptions
+} from './common'
+import { useUserInfoStore } from '@/store/userInfo'
+import { storeToRefs } from 'pinia'
 
+const simulationQuery = ref(true)
+const onSimulationQuery = () => {
+  simulationQuery.value = false
+  setTimeout(() => {
+    simulationQuery.value = true
+  }, 500)
+}
 const INITIAL_DATA = {
   vagueSearchValue: '',
   petCategory: '3',
   vaccinated: '3',
   adoptionRecord: '3',
-  character: '4',
+  character: '5',
   pagination: {
     pageNum: 1,
     pageSize: 6,
@@ -143,9 +161,14 @@ const fakeData = [
 
 const handleCurrentChange = () => {
   console.log('现在的页数改变, 根据查询表单查询分页领养宠物数据列表')
+  onSimulationQuery()
 }
 
-/* 发布领养信息表单 */
+/* 发布领养信息按钮&对话框 */
+
+const userInfoStore = useUserInfoStore()
+const { isLogged } = storeToRefs(userInfoStore)
+
 const publishDialogVisible = ref(false)
 const publishAdoptionInfo = () => {
   publishDialogVisible.value = true

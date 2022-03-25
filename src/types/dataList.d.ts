@@ -28,6 +28,7 @@ declare namespace INFO {
   }
 
   interface PetData {
+    id: string
     petName: string
     age: string
     contactInfo: string
@@ -37,5 +38,6 @@ declare namespace INFO {
     character: string
     vaccinated: string
     adoptionRecord: string
+    imgList: string[]
   }
 }
