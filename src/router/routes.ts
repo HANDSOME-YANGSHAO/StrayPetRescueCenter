@@ -41,7 +41,7 @@ export const routes: RouteRecordRaw[] = [
     path: '/FeedingRecord',
     component: FeedingRecord,
     meta: {
-      title: '喂养中心'
+      title: '投喂记录'
     }
   },
   {

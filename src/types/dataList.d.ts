@@ -40,4 +40,13 @@ declare namespace INFO {
     adoptionRecord: string
     imgList: string[]
   }
+
+  interface feedRecordData {
+    id: string
+    petName: string
+    remarks: string
+    datetime: string
+    feedPlace: string
+    imgList: string[]
+  }
 }
