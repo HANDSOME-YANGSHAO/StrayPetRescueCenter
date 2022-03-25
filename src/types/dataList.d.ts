@@ -38,4 +38,13 @@ declare namespace INFO {
     vaccinated: string
     adoptionRecord: string
   }
+
+  interface feedRecordData {
+    id: string
+    petName: string
+    remarks: string
+    datetime: string
+    feedPlace: string
+    imgList: string[]
+  }
 }

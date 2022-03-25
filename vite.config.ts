@@ -6,6 +6,7 @@ import path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import jojocompare from 'vite-plugin-compare'
 
 export default defineConfig({
   resolve: {
@@ -22,7 +23,8 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver()]
-    })
+    }),
+    jojocompare()
   ],
   // 配置代理
   server: {

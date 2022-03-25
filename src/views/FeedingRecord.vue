@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <h1>投喂记录</h1>
-  </div>
+<FeedingRecord />
 </template>
 
 <script setup lang="ts">
+import FeedingRecord from '@/components/FeedingRecord/index.vue'
 
 </script>
 
