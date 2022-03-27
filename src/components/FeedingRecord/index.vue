@@ -29,10 +29,16 @@
           <el-button type="primary" @click="onQuery">查询</el-button>
         </el-form-item>
         <el-form-item>
-          <el-button
-            @click="onPublishFeedRecord"
-            :disabled="!isLogged"
-          >{{ isLogged ? '发布投喂记录' : '发布投喂记录(请先登录!)' }}</el-button>
+          <el-tooltip :content="
+            isLogged ? '点击发布投喂记录' : '点击发布投喂记录(请先登录!)'" placement="top" effect="light">
+            <el-button
+              type="primary"
+              @click="onPublishFeedRecord"
+              :icon="Edit"
+              :disabled="!isLogged"
+              circle
+            />
+          </el-tooltip>
         </el-form-item>
       </el-form>
 
@@ -72,6 +78,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { Edit } from '@element-plus/icons-vue'
 import { ref, Ref } from 'vue'
 import PublishForm from './PublishForm/index.vue'
 import { useUserInfoStore } from '@/store/userInfo'
@@ -103,7 +110,7 @@ const onPublishFeedRecord = () => {
 
 /* 列表数据 */
 // 页面渲染发送请求获取列表数据
-const feedRecordList:Ref<INFO.feedRecordData[]> = ref([
+const feedRecordList: Ref<INFO.feedRecordData[]> = ref([
   {
     id: '666',
     petName: '大白',
@@ -156,7 +163,6 @@ const feedRecordList:Ref<INFO.feedRecordData[]> = ref([
 const onQuery = () => {
   console.log('携带表单数据去查询投喂记录列表')
 }
-
 </script>
 
 <style scoped lang="scss">
@@ -166,4 +172,4 @@ const onQuery = () => {
 .feedRecordCard-list {
   margin: 30px 0;
 }
-</style >
+</style>

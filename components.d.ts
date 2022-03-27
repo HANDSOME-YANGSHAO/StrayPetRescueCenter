@@ -17,6 +17,7 @@ declare module 'vue' {
     CommentItem: typeof import('./src/components/CommonComps/Comment/comment-item/index.vue')['default']
     Communication: typeof import('./src/components/HomeComps/Communication/index.vue')['default']
     Content: typeof import('./src/components/ContainerComps/Content/index.vue')['default']
+    DonationRecord: typeof import('./src/components/DonationRecord/index.vue')['default']
     Drawer: typeof import('./src/components/ContainerComps/Header/Drawer/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
