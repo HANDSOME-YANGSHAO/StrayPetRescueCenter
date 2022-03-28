@@ -5,12 +5,14 @@
       <DataList class="body-item"/>
       <LoveList class="body-item"/>
     </div>
+    <Notice />
   </div>
 </template>
 
 <script setup lang="ts">
 import DataList from './DataList/index.vue'
 import LoveList from './LoveList/index.vue'
+import Notice from './Notice/index.vue'
 
 </script>
 
