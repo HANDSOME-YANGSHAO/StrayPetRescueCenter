@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <h1>捐赠记录</h1>
-  </div>
+  <DonationRecord />
 </template>
 
 <script setup lang="ts">
+import DonationRecord from '@/components/DonationRecord/index.vue'
 
 </script>
 

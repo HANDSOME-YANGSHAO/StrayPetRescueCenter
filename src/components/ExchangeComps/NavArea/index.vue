@@ -90,7 +90,7 @@ const goPublishArticle = () => {
   display: flex;
   justify-content: space-between;
   background-color: rgba(247, 129, 28);
-  width: 69.55vw;
+  width: 100%;
   align-items: center;
   .nav-left {
     display: flex;
@@ -128,8 +128,7 @@ const goPublishArticle = () => {
 }
 
 .nav-images {
-  width: 69.55vw;
-  height: 16.43192vw;
+  width: 100%;
   img {
     height: 100%;
     width: 100%;

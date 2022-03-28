@@ -49,4 +49,24 @@ declare namespace INFO {
     feedPlace: string
     imgList: string[]
   }
+
+  interface PayRecord {
+    time: string
+    pay: number
+    title: string
+    describe: string
+    imgList: string[]
+  }
+  interface IncomeRecord {
+    time: string
+    income: number
+    title: string
+    describe: string
+    imgList: string[]
+  }
+  interface LoveList {
+    userName: string
+    location: string
+    donation: number
+  }
 }
