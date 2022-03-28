@@ -25,13 +25,16 @@
         <span class="text">{{ `爱心善款总计` }}</span>
       </div>
       <div class="sum-body">
-        <el-card>
-          <span>{{ `累计爱心善款收入：${sum[0]}` }}</span>
+        <el-card shadow="hover">
+          <span>{{ `累计爱心善款收入：${sum[0]}元` }}</span>
         </el-card>
-        <el-card>
-          <span>{{ `累计爱心善款支出：${sum[1]}` }}</span>
+        <el-card shadow="hover">
+          <span>{{ `累计爱心善款支出：${sum[1]}元` }}</span>
         </el-card>
       </div>
+    </div>
+    <div class="footerImg">
+      <img src="../../../assets/img/捐赠模块.jpg">
     </div>
   </div>
 </template>
@@ -48,7 +51,12 @@ const sum: Ref<number[]> = ref([]) // 假数据
 onMounted(() => {
   console.log('发送请求获取爱心列表数据')
   loveList.value = [
-    { userName: '李先生', location: '云南曲靖市富源县文本溢出测试文本溢测试文本溢出测试文本溢测试文本溢出测试文本溢测试', donation: 200 },
+    {
+      userName: '李先生',
+      location:
+        '云南曲靖市富源县文本溢出测试文本溢测试文本溢出测试文本溢测试文本溢出测试文本溢测试',
+      donation: 200
+    },
     { userName: '谢先生', location: '重庆', donation: 100 },
     { userName: '王女士', location: '云南', donation: 600 },
     { userName: '帅哥李', location: '重庆', donation: 200 }
@@ -109,12 +117,27 @@ onMounted(() => {
     display: flex;
     justify-content: space-around;
     .el-card {
+      cursor: pointer;
       width: 40%;
       height: 50px;
       display: flex;
+      justify-content: center;
+      align-items: center;
       span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 14px;
+        color: #666666;
       }
     }
+  }
+}
+.footerImg {
+  margin-top: 50px;
+  img {
+    width: 100%;
+    border-radius: 5px;
   }
 }
 </style>
