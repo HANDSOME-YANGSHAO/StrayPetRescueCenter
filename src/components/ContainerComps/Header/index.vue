@@ -75,6 +75,7 @@ import { ElMessage } from 'element-plus'
 import { useUserInfoStore } from '@/store/userInfo'
 import { useRouterStore } from '@/store/router'
 import { storeToRefs } from 'pinia'
+import emitter from '@/utils/eventBus'
 
 const menuList = routes.filter((item: RouteRecordRaw) => {
   return item.name !== 'Index' && item.name !== 'Login'
@@ -85,8 +86,9 @@ const { isLogged, userInfo } = storeToRefs(userInfoStore)
 
 const routerStore = useRouterStore()
 const { lastPath } = storeToRefs(routerStore)
-const refreshLastPath = () => {
+const refreshLastPath = (index:string) => {
   routerStore.getAciveIndex()
+  if (index === '/ExchangeCenter') emitter.emit('toChangeNav')
 }
 
 const avatarSrc = computed(() => {

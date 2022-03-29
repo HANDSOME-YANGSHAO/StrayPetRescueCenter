@@ -1,13 +1,15 @@
 <template>
   <div class="articleList-container">
     <ArticleCard v-for="item in fakeData" :key="item.title" :articleItem="item" />
-    <el-pagination
-      v-model:currentPage="pagination.pageNum"
-      v-model:page-size="pagination.pageSize"
-      layout="total, prev, pager, next, jumper"
-      :total="pagination.total"
-      @current-change="handleCurrentChange"
-    />
+    <div class="center">
+      <el-pagination
+        v-model:currentPage="pagination.pageNum"
+        v-model:page-size="pagination.pageSize"
+        layout="total, prev, pager, next, jumper"
+        :total="pagination.total"
+        @current-change="handleCurrentChange"
+      />
+    </div>
   </div>
 </template>
 

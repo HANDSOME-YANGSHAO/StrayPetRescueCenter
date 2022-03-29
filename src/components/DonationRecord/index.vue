@@ -6,6 +6,7 @@
       <LoveList class="body-item"/>
     </div>
     <Notice />
+    <LoveProject />
   </div>
 </template>
 
@@ -13,6 +14,7 @@
 import DataList from './DataList/index.vue'
 import LoveList from './LoveList/index.vue'
 import Notice from './Notice/index.vue'
+import LoveProject from './LoveProject/index.vue'
 
 </script>
 

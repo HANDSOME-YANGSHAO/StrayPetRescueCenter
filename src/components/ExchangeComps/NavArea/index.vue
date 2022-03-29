@@ -6,9 +6,7 @@
         :key="item.path"
         :class="activeIndex === index ? `nav-item active` : `nav-item`"
         @click="changeNav(item.path, index)"
-      >
-        {{ item.title }}
-      </div>
+      >{{ item.title }}</div>
     </div>
     <div class="nav-right" @click="goPublishArticle">
       <img src="../../../assets/svg/点击发布文章.svg" />
@@ -27,6 +25,7 @@ import { useRouterStore } from '../../../store/router'
 import { useUserInfoStore } from '../../../store/userInfo'
 import { useRouter, useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
+import emitter from '@/utils/eventBus'
 
 /* 初始 */
 const navItem = ref([
@@ -44,7 +43,7 @@ const { isLogged } = storeToRefs(userInfoStore)
 
 /* 导航菜单 */
 const changeNav = (path: string, index: number) => {
-  if (path === '/ExchangeCenter/MyArticle' && !isLogged.value) {
+  if (!(isLogged.value) && path === '/ExchangeCenter/MyArticle') {
     ElMessage({
       message: '请先登录！',
       type: 'warning'
@@ -80,6 +79,12 @@ const goPublishArticle = () => {
   router.push('/ExchangeCenter/PublishArticle')
   routerStore.getAciveIndex()
 }
+
+/* 解决二次点击交流中心导航项目不会映射到子路由的bug */
+emitter.on('toChangeNav', () => {
+  const articleNavIndex = Number(localStorage.getItem('articleNavIndex')) // 第一次取到null，Number(null) --> 0 默认指向所有文章
+  changeNav(navItem.value[articleNavIndex].path, articleNavIndex)
+})
 </script>
 
 <style scoped lang="scss">

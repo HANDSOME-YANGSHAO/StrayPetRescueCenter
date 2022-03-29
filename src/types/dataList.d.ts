@@ -69,4 +69,11 @@ declare namespace INFO {
     location: string
     donation: number
   }
+
+  interface Notice {
+    id: string
+    title: string
+    date: string
+    content: string
+  }
 }

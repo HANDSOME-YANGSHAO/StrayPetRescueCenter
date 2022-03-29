@@ -29,8 +29,12 @@
           <el-button type="primary" @click="onQuery">查询</el-button>
         </el-form-item>
         <el-form-item>
-          <el-tooltip :content="
-            isLogged ? '点击发布投喂记录' : '点击发布投喂记录(请先登录!)'" placement="top" effect="light">
+          <el-tooltip
+            :content="
+            isLogged ? '点击发布投喂记录' : '点击发布投喂记录(请先登录!)'"
+            placement="top"
+            effect="light"
+          >
             <el-button
               type="primary"
               @click="onPublishFeedRecord"
@@ -57,13 +61,15 @@
       </div>
 
       <!-- 分页 -->
-      <el-pagination
-        v-model:currentPage="formData.pagination.pageNum"
-        v-model:page-size="formData.pagination.pageSize"
-        layout="total, prev, pager, next, jumper"
-        :total="formData.pagination.total"
-        @current-change="onQuery"
-      />
+      <div class="center">
+        <el-pagination
+          v-model:currentPage="formData.pagination.pageNum"
+          v-model:page-size="formData.pagination.pageSize"
+          layout="total, prev, pager, next, jumper"
+          :total="formData.pagination.total"
+          @current-change="onQuery"
+        />
+      </div>
 
       <!-- 发布投喂记录的drawer -->
       <el-drawer v-model="publishFeedRecordDrawerVisible" direction="rtl" size="60%">

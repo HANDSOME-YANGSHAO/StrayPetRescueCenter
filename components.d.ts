@@ -59,6 +59,7 @@ declare module 'vue' {
     Introduction: typeof import('./src/components/HomeComps/Introduction/index.vue')['default']
     Layout: typeof import('./src/components/ContainerComps/Layout/layout.vue')['default']
     LoveList: typeof import('./src/components/DonationRecord/LoveList/index.vue')['default']
+    LoveProject: typeof import('./src/components/DonationRecord/LoveProject/index.vue')['default']
     MyArticle: typeof import('./src/components/ExchangeComps/MyArticle/index.vue')['default']
     NavArea: typeof import('./src/components/ExchangeComps/NavArea/index.vue')['default']
     Notice: typeof import('./src/components/DonationRecord/Notice/index.vue')['default']

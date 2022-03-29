@@ -58,13 +58,16 @@
         </el-collapse>
       </el-tab-pane>
       <!-- 分页 -->
-      <el-pagination
-        v-model:currentPage="pagination.pageNum"
-        v-model:page-size="pagination.pageSize"
-        layout="total, prev, pager, next"
-        :total="pagination.total"
-        @current-change="handleClick"
-      />
+      <div class="center">
+        <el-pagination
+          small
+          v-model:currentPage="pagination.pageNum"
+          v-model:page-size="pagination.pageSize"
+          layout="prev, pager, next"
+          :total="pagination.total"
+          @current-change="handleClick"
+        />
+      </div>
     </el-tabs>
   </div>
 </template>
@@ -216,13 +219,8 @@ const enlargeImg = (imgSrc: string) => {
   imgDialogVisible.value = true
 }
 
-/* 爱心善款总计 */
-const sum: Ref<number[]> = ref([]) // 假数据
-
 onMounted(() => {
   handleClick()
-  console.log('发送请求获取爱心善款累计收入和支出')
-  sum.value = [1170, 841]
 })
 </script>
 

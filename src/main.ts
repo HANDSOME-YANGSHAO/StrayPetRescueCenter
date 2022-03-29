@@ -12,3 +12,7 @@ app.use(createPinia())
 app.use(router)
 app.use(ElementPlus)
 app.mount('#app')
+
+// const a = 5
+// console.log(4 < a < 2, '------------')
+// console.log(a == 1 || 2 || 3)

@@ -3,11 +3,7 @@
     <!-- 查询头部 -->
     <div class="adoptionCenter-header">
       <div class="vagueSearch">
-        <el-input
-          v-model="formData.vagueSearchValue"
-          :prefix-icon="Search"
-          placeholder="搜索"
-        ></el-input>
+        <el-input v-model="formData.vagueSearchValue" :prefix-icon="Search" placeholder="搜索"></el-input>
         <el-button type="primary" @click="onSimulationQuery">查询</el-button>
       </div>
       <div class="classification">
@@ -56,7 +52,13 @@
       </div>
       <div class="publishAdoptionInfo">
         <el-tooltip content="点击发布领养信息" placement="left" effect="light">
-          <el-button type="primary" @click="publishAdoptionInfo" :icon="Edit" :disabled="!isLogged" circle />
+          <el-button
+            type="primary"
+            @click="publishAdoptionInfo"
+            :icon="Edit"
+            :disabled="!isLogged"
+            circle
+          />
         </el-tooltip>
         <el-dialog v-model="publishDialogVisible" title="发布领养信息" :close-delay="50">
           <PublishForm v-model:publishDialogVisible="publishDialogVisible" />
@@ -66,13 +68,15 @@
     <!-- 领养宠物列表 -->
     <PetsList v-if="simulationQuery" :pet-list="fakeData" />
     <!-- 分页 -->
-    <el-pagination
-      v-model:currentPage="formData.pagination.pageNum"
-      v-model:page-size="formData.pagination.pageSize"
-      layout="total, prev, pager, next, jumper"
-      :total="formData.pagination.total"
-      @current-change="handleCurrentChange"
-    />
+    <div class="center">
+      <el-pagination
+        v-model:currentPage="formData.pagination.pageNum"
+        v-model:page-size="formData.pagination.pageSize"
+        layout="total, prev, pager, next, jumper"
+        :total="formData.pagination.total"
+        @current-change="handleCurrentChange"
+      />
+    </div>
   </div>
 </template>
 
