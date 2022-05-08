@@ -83,7 +83,7 @@ export const routes: RouteRecordRaw[] = [
     path: '/ShoppingMall',
     component: ShoppingMall,
     meta: {
-      title: '商城'
+      title: '商店'
     }
   }
 ]

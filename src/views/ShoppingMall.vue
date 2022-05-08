@@ -1,13 +1,9 @@
 <template>
-  <div>
-    <h1>商城</h1>
-  </div>
+  <ShoppingMall />
 </template>
 
 <script setup lang="ts">
-
+import ShoppingMall from '@/components/ShoppingMall/index.vue'
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

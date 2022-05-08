@@ -69,6 +69,7 @@ declare module 'vue' {
     PublishArticle: typeof import('./src/components/ExchangeComps/PublishArticle/index.vue')['default']
     PublishForm: typeof import('./src/components/AdoptionCenter/PublishForm/index.vue')['default']
     Serve: typeof import('./src/components/HomeComps/Serve/index.vue')['default']
+    ShoppingMall: typeof import('./src/components/ShoppingMall/index.vue')['default']
     Suggestion: typeof import('./src/components/HomeComps/Suggestion/index.vue')['default']
     UploadAvatar: typeof import('./src/components/CommonComps/UploadAvatar/index.vue')['default']
   }

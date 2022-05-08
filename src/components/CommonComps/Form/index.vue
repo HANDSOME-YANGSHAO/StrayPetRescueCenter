@@ -25,7 +25,7 @@
     <el-form-item label="宠物经验" v-if="registerItemVisible || setUserInfoItemVisible" prop="keptPets">
       <el-switch v-model="formData.keptPets" />
     </el-form-item>
-    <el-form-item label="真实姓名" v-if="registerItemVisible || setUserInfoItemVisible" prop="realName">
+    <el-form-item label="昵称" v-if="registerItemVisible || setUserInfoItemVisible" prop="realName">
       <el-input v-model="formData.realName"></el-input>
     </el-form-item>
     <el-form-item label="年龄" v-if="registerItemVisible || setUserInfoItemVisible" prop="age">
