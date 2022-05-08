@@ -10,12 +10,12 @@
     <div class="badge-group">
       <Badge :number="articleData.hitsNum">
         <template #icon>
-          <img src="../../../assets/svg/点击量.svg" />
+          <img src="../../../assets/svg/clickNum.svg" />
         </template>
       </Badge>
       <Badge :number="articleData.replyNum">
         <template #icon>
-          <img src="../../../assets/svg/回复.svg" />
+          <img src="../../../assets/svg/reply.svg" />
         </template>
       </Badge>
     </div>

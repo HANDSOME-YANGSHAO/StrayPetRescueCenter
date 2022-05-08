@@ -9,12 +9,12 @@
       >{{ item.title }}</div>
     </div>
     <div class="nav-right" @click="goPublishArticle">
-      <img src="../../../assets/svg/点击发布文章.svg" />
+      <img src="../../../assets/svg/publishArticle.svg" />
       <span>发布文章</span>
     </div>
   </div>
   <div class="nav-images">
-    <img src="../../../assets/img/交流中心.jpg" />
+    <img src="../../../assets/img/communication.jpg" />
   </div>
 </template>
 

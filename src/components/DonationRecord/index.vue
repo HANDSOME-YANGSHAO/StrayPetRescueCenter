@@ -1,6 +1,6 @@
 <template>
   <div class="donationRecord-container">
-    <img src="../../assets/img/捐赠封面.jpg">
+    <img src="../../assets/img/donationCover.jpg">
     <div class="donationRecord-body">
       <DataList class="body-item"/>
       <LoveList class="body-item"/>

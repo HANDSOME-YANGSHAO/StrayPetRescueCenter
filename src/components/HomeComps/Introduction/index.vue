@@ -11,10 +11,10 @@
         </div>
         <el-button color="#EF4136" style="color: white" @click="readMore">查看更多</el-button>
       </div>
-      <img class="Introduction-card-image1" src="../../../assets/img/流浪宠物救助.webp" />
+      <img class="Introduction-card-image1" src="../../../assets/img/strayPetRescue.webp" />
     </div>
     <div class="Introduction-card">
-      <img class="Introduction-card-image2" src="../../../assets/img/用心真诚照顾.jpeg" />
+      <img class="Introduction-card-image2" src="../../../assets/img/care.jpeg" />
       <div class="Introduction-card-text">
         <div class="theme">用心真诚照顾</div>
         <span class="guide">给宠物温暖的关爱</span>

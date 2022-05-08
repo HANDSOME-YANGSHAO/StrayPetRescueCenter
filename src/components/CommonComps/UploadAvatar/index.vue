@@ -15,17 +15,12 @@
 import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
-import type {
-  UploadFile,
-  ElUploadProgressEvent,
-  ElFile
-} from 'element-plus/es/components/upload/src/upload.type'
 
 const imageUrl = ref('')
-const handleAvatarSuccess = (res: ElUploadProgressEvent, file: UploadFile) => {
+const handleAvatarSuccess = (res, file) => {
   imageUrl.value = URL.createObjectURL(file.raw)
 }
-const beforeAvatarUpload = (file: ElFile) => {
+const beforeAvatarUpload = (file) => {
   console.log(file)
   const isJPG = file.type === 'image/jpeg'
   const isLt2M = file.size / 1024 / 1024 < 2

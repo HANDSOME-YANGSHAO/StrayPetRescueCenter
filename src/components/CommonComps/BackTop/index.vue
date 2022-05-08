@@ -1,7 +1,7 @@
 <template>
   <div v-if="backTopVisble" @click="backToTop" class="backTop-container">
-    <img src="../../../assets/svg/猫咪.svg" />
-    <img src="../../../assets/svg/回到顶部.svg" />
+    <img src="../../../assets/svg/cat.svg" />
+    <img src="../../../assets/svg/backTop.svg" />
   </div>
 </template>
 

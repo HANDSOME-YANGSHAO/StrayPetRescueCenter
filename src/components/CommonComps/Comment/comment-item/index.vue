@@ -11,12 +11,12 @@
     <div class="badge-group">
       <Badge class="pointer" :number="commentData.thumbsUpNum" @click="thumbsUp">
         <template #icon>
-          <img v-if="!thumbsActive" src="../../../../assets/svg/点赞.svg" />
-          <img v-else src="../../../../assets/svg/点赞成功.svg" />
+          <img v-if="!thumbsActive" src="../../../../assets/svg/thumb.svg" />
+          <img v-else src="../../../../assets/svg/thumb_active.svg" />
         </template>
       </Badge>
       <Badge class="pointer" :number="commentData.replyNum">
-        <template #icon> <img src="../../../../assets/svg/回复黑.svg" /> </template
+        <template #icon> <img src="../../../../assets/svg/reply_black.svg" /> </template
       ></Badge>
     </div>
     <div class="line"></div>
@@ -34,12 +34,12 @@ const props = defineProps({
     default: () => {
       return {
         avatar:
-          'https://p26-passport.byteacctimg.com/img/user-avatar/4b9b94b97a7a735e87facbea7cacdcbc~300x300.image',
-        pickName: '李老三',
+          'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww1.sinaimg.cn%2Fmw690%2Fe1b8508cly1gc6qj475ctj20u00tutan.jpg&refer=http%3A%2F%2Fwww.sina.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648908845&t=b225b3d3cecfb7c550bd7bcd4595ea77',
+        pickName: '帅气洋少',
         publishTime: '2022年3月17日 14:22',
-        replyNum: 10,
-        thumbsUpNum: 14,
-        content: ' sa！喔脉络字谜卡ze儿洛，喔磊哇卡灭勒达joker!'
+        replyNum: 0,
+        thumbsUpNum: 2,
+        content: '呜呜呜！希望咱们的雪豹小宝贝能够快快痊愈！'
       } as INFO.CommentData
     }
   }

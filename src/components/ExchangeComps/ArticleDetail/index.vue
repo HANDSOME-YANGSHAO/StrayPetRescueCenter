@@ -28,8 +28,8 @@
   <div class="thumbs">
     <span>给这篇文章点赞~</span>
     <div class="right" @click="thumbsUp">
-      <img v-if="!thumbsActive" src="../../../assets/svg/点赞.svg" />
-      <img v-else src="../../../assets/svg/点赞成功.svg" />
+      <img v-if="!thumbsActive" src="../../../assets/svg/thumb.svg" />
+      <img v-else src="../../../assets/svg/thumb_active.svg" />
       <span>{{ articleData.thumbsUpNum }}</span>
     </div>
   </div>
@@ -56,16 +56,17 @@ const isEditorShow = ref(false)
 /* 文章数据的假数据（模拟发送请求拿到数据） */
 const articleData: Ref<INFO.ArticleData> = ref({
   id: '9999',
-  title: '如何培养好柴犬的生活习惯？',
+  title: '猫咪雪豹受伤情况恢复',
   avatar:
     'https://p26-passport.byteacctimg.com/img/user-avatar/4b9b94b97a7a735e87facbea7cacdcbc~300x300.image',
-  authorName: '李老三',
-  publishTime: '2022年3月17日 14:22',
-  hitsNum: 305,
-  replyNum: 10,
-  thumbsUpNum: 200,
-  content: ' <p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201808%2F30%2F20180830160031_xelzy.jpg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650522872&t=d68f7254bf7d1d5a63ecc74fefe69ba4" alt="修勾儿" data-href="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201808%2F30%2F20180830160031_xelzy.jpg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650522872&t=d68f7254bf7d1d5a63ecc74fefe69ba4" style="width: 347.00px;height: 347.00px;"/></p><p>&nbsp;&nbsp;&nbsp;&nbsp;我们在养柴犬的时候都希望它始终能够乖巧听话，呼之则来招之则去的。但是柴犬天性顽皮好动，要想达到顺从的目的，就得需要主人平时多加训练了。那么，平时该如何训练柴犬呢？这几个方法是关键，赶紧来看看吧。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、规定地点训练</p><p> &nbsp; &nbsp;将柴犬带回家之后经常随地大小便，家里被搞得脏兮兮的？这是因为你没有给它养成定点的好习惯。要在柴犬很小的时候就要开始训练它，先把它关在一个狭小的笼子中，当它有想要大小便的需求时，迅速把它放在指定位置，如果能够做到就奖励，做不到就重复，直到学会为止。</p><p> &nbsp; &nbsp;二、护食训练</p><p> &nbsp; &nbsp;对于有养柴犬经验的人来说，如果不做护食训练很容易在吃食的时候抓伤主人。所以新手主人们一定要给柴犬做护食训练，首先将食物放在自己的手中，让它舔食，建立信任感。其次，在尝试着抚摸它，让它放下戒备，大胆吃食。</p><p> &nbsp; &nbsp;三、训练柴犬坐下</p><p> &nbsp; &nbsp;在训练柴犬的时候，主人需要蹲在柴犬的右侧，并且发出口令，把左手放在柴犬的背上，用手轻轻的按住柴犬的臀部和后腿，手动让他坐下。</p><p> &nbsp; &nbsp;主人们需要注意，训练柴犬的最佳时间是4~6个月大的时候，训练它最好先从基本的坐、握手之类的学起，服从性训练好之后就可以考虑下一步了，还有训练的时候不能超十五分钟哦。</p> '
+  authorName: '重邮猫咪小助手',
+  publishTime: '2022年5月7日 14:22',
+  hitsNum: 50,
+  replyNum: 3,
+  thumbsUpNum: 2,
+  content: '<p><img src="https://img2.baidu.com/it/u=3971627457,1973217076&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=402" alt="aa" data-href="https://img2.baidu.com/it/u=3971627457,1973217076&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=402" style=""/></p><p><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-size: 15px; font-family: punctuation, PingFangSC-Regular, &quot;Microsoft Yahei&quot;, &quot;sans-serif&quot;;">【喵喵解释】老校门的雪豹前段时间和其他猫猫打架受伤，救助中心的同学发现后第一时间将其送往医院救治。救治过程中剃掉了脖子部位的毛发。近期我们将雪豹接回校园，脖子上的伤口因为正在恢复结痂，所以会看起来很恐怖，很多同学也因此很担心雪豹的状况并前来询问</span><img src="http://qzonestyle.gtimg.cn/qzone/em/e10307.gif" alt="" data-href="" style=""/><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-size: 15px; font-family: punctuation, PingFangSC-Regular, &quot;Microsoft Yahei&quot;, &quot;sans-serif&quot;;">小助手在此感谢各位同学的关心</span><img src="http://qzonestyle.gtimg.cn/qzone/em/e163.png" alt="" data-href="" style=""/><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-size: 15px; font-family: punctuation, PingFangSC-Regular, &quot;Microsoft Yahei&quot;, &quot;sans-serif&quot;;">雪豹现在正在逐渐恢复，大家不用太担心啦，欢迎大家多多投喂，也希望雪豹早日恢复健康</span></p>'
 })
+
 // 富文本解析器异步获取数据
 defaultHtml.value = articleData.value.content
 isEditorShow.value = true

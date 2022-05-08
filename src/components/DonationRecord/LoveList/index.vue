@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="footerImg">
-      <img src="../../../assets/img/捐赠模块.jpg">
+      <img src="../../../assets/img/donationModule.jpg">
     </div>
   </div>
 </template>

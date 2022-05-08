@@ -17,10 +17,10 @@
 import { reactive } from 'vue'
 
 const cardList = reactive([
-  { title: '流浪宠物领养', imgSrc: './homeImg/宠物领养.jpeg' },
-  { title: '宠物喂养', imgSrc: './homeImg/宠物喂养.jpeg' },
-  { title: '捐献爱心', imgSrc: './homeImg/捐献爱心.jpeg' },
-  { title: '宠物商城', imgSrc: './homeImg/宠物商城.jpeg' }
+  { title: '流浪宠物领养', imgSrc: './homeImg/petAdoption.jpeg' },
+  { title: '宠物喂养', imgSrc: './homeImg/petFeeding.jpeg' },
+  { title: '捐献爱心', imgSrc: './homeImg/donationLove.jpeg' },
+  { title: '宠物商城', imgSrc: './homeImg/petStore.jpeg' }
 ])
 </script>
 

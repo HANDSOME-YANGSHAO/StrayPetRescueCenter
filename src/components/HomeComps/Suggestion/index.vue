@@ -20,7 +20,7 @@
           :hide-icon="true"
         >
           <template #reference>
-            <img src="../../../assets/svg/发送.svg" />
+            <img src="../../../assets/svg/send.svg" />
           </template>
         </el-popconfirm>
       </div>

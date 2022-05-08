@@ -20,22 +20,22 @@
 <script setup lang="ts">
 const proData = [
   {
-    imgSrc: './donationImg/爱心项目2.webp',
+    imgSrc: './donationImg/lovePro2.webp',
     title: '救助受伤流浪动物',
     proDesc: '帮助受伤流浪宠物，组织志愿者共同帮助受伤的流浪动物去医院做手术、打针吃药等。在大家的帮助下，我们已经救助了十多只受伤狗狗和猫咪。'
   },
   {
-    imgSrc: './donationImg/爱心项目3.jpeg',
+    imgSrc: './donationImg/lovePro3.jpeg',
     title: '购买流浪动物物资',
     proDesc: '在流浪宠物平常居住的点，我们会定时投喂食物和水源以及自己买材料做的宠物住所（狗房、猫房），大家平常的善款也有部分用于购买公共的狗粮猫粮等。'
   },
   {
-    imgSrc: './donationImg/爱心项目4.jpg',
+    imgSrc: './donationImg/lovePro4.jpg',
     title: '帮助流浪动物接种疫苗',
     proDesc: '帮助宠物们做绝育手术，接种疫苗。'
   },
   {
-    imgSrc: './donationImg/爱心项目5.jpg',
+    imgSrc: './donationImg/lovePro5.jpg',
     title: '援助孤立无援的动物宝宝',
     proDesc: '救助刚刚出生却无法生存的宠物，我们会在领养平台发相关的领养信息。'
   }

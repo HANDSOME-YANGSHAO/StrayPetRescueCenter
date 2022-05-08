@@ -7,7 +7,7 @@
     <div class="aricle-guide">
       <div class="left">
         <el-card shadow="hover" class="aticle-card" @click="goArticleDetail">
-          <img src="../../../assets/img/模拟文章封面.jpeg" />
+          <img src="../../../assets/img/articleCover.jpeg" />
           <div class="describe">
             <div class="article-title">{{ '柴犬的年龄划分' }}</div>
             <div class="article-time">{{ '2022年 9月10号' }}</div>

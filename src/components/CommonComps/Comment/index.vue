@@ -6,7 +6,7 @@
     </div>
     <div class="comment-list">
       <h2>所有评论</h2>
-      <CommentItem v-for="n in 6" :key="n" />
+      <CommentItem v-for="n in 1" :key="n" />
     </div>
   </div>
 </template>

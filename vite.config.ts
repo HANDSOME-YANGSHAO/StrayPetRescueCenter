@@ -9,6 +9,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import jojocompare from 'vite-plugin-compare'
 
 export default defineConfig({
+  base: './',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
